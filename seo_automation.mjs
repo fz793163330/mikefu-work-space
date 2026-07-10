@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 const SOURCES = [
   { name: 'Search Engine Journal - SEO', url: 'https://www.searchenginejournal.com/category/seo/', allowedHost: 'www.searchenginejournal.com' },
   { name: 'Search Engine Land - SEO', url: 'https://searchengineland.com/library/seo', allowedHost: 'searchengineland.com' },
+  { name: 'Moz Blog', url: 'https://moz.com/blog', allowedHost: 'moz.com' },
+  { name: 'Search Engine Roundtable', url: 'https://www.seroundtable.com/', allowedHost: 'www.seroundtable.com' },
 ];
 
 const __filename = fileURLToPath(import.meta.url);
