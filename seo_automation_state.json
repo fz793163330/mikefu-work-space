@@ -168,6 +168,15 @@
         "钉钉推送失败：DingTalk API error 300001: robot type do not match with the message"
       ],
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_09-58-05.md"
+    },
+    {
+      "run_at": "2026-07-10T10:00:53.751Z",
+      "found": 20,
+      "new": 0,
+      "errors": [
+        "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
+      ],
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_10-00-53.md"
     }
   ]
 }
