@@ -28,3 +28,15 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\run_seo_automation.ps1
 ## 注意
 
 Search Engine Land 当前可能对自动抓取返回 Cloudflare/403；脚本会把异常写入报告，不影响 Search Engine Journal 的日报生成。
+
+## 钉钉推送
+
+GitHub Actions 已支持把每日摘要推送到钉钉机器人。请在 GitHub 仓库中配置 Secret：
+
+1. 打开仓库 `Settings` → `Secrets and variables` → `Actions`
+2. 点击 `New repository secret`
+3. Name 填：`DINGTALK_WEBHOOK`
+4. Secret 填：你的钉钉机器人 webhook URL
+5. 保存后，可进入 `Actions` → `SEO/AEO Daily Digest` → `Run workflow` 手动测试
+
+为了安全，不要把 webhook 明文提交到代码仓库。

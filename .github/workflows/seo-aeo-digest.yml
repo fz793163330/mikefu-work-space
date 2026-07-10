@@ -24,6 +24,8 @@ jobs:
           node-version: '24'
 
       - name: Run SEO/AEO digest
+        env:
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
         run: node seo_automation.mjs
 
       - name: Commit generated reports and state
@@ -37,3 +39,4 @@ jobs:
             git commit -m "chore: update SEO/AEO daily digest"
             git push
           fi
+

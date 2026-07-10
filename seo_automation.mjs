@@ -210,6 +210,68 @@ function renderReport(newArticles, errors, allFound) {
   fs.writeFileSync(reportPath, lines.join('\n'), 'utf8');
   return reportPath;
 }
+function githubReportUrl(reportPath) {
+  const repo = process.env.GITHUB_REPOSITORY;
+  const branch = process.env.GITHUB_REF_NAME || 'main';
+  if (!repo) return null;
+  const rel = path.relative(ROOT, reportPath).replace(/\\/g, '/').split('/').map(encodeURIComponent).join('/');
+  return `https://github.com/${repo}/blob/${branch}/${rel}`;
+}
+function dingTalkText(runInfo, newArticles, reportPath) {
+  const reportUrl = githubReportUrl(reportPath);
+  const lines = [];
+  lines.push('## SEO/AEO 每日学习报告');
+  lines.push('');
+  lines.push(`- 运行时间：${new Date(runInfo.run_at).toLocaleString('zh-CN', { hour12: false })}`);
+  lines.push(`- 新文章：${runInfo.new} 篇`);
+  lines.push(`- 列表文章：${runInfo.found} 篇`);
+  if (runInfo.errors?.length) lines.push(`- 抓取异常：${runInfo.errors.length} 个（详见报告）`);
+  lines.push(`- 报告：${reportUrl ? `[打开 GitHub 报告](${reportUrl})` : path.basename(reportPath)}`);
+  lines.push('');
+  if (newArticles.length) {
+    lines.push('### 今日重点文章');
+    for (const a of newArticles.slice(0, 8)) {
+      lines.push(`- [${a.title}](${a.url})`);
+    }
+    if (newArticles.length > 8) lines.push(`- 其余 ${newArticles.length - 8} 篇见完整报告`);
+    lines.push('');
+    lines.push('### 今日执行建议');
+    lines.push('1. 选 1-2 条方法论加入内容 SOP。');
+    lines.push('2. 为重点页面补齐答案前置、FAQ/结构化数据、证据来源和内链。');
+    lines.push('3. 记录实验页面指标，2-4 周后复盘。');
+  } else {
+    lines.push('本次未发现新文章。');
+  }
+  let text = lines.join('\n');
+  if (text.length > 3600) text = text.slice(0, 3500) + '\n\n内容较长，完整信息请查看 GitHub 报告。';
+  return text;
+}
+async function sendDingTalk(runInfo, newArticles, reportPath) {
+  const webhook = process.env.DINGTALK_WEBHOOK;
+  if (!webhook) {
+    console.log('DINGTALK_WEBHOOK is not set; skip DingTalk notification.');
+    return;
+  }
+  const payload = {
+    msgtype: 'markdown',
+    markdown: {
+      title: `SEO/AEO 日报：${runInfo.new} 篇新文章`,
+      text: dingTalkText(runInfo, newArticles, reportPath),
+    },
+    at: { isAtAll: false },
+  };
+  const res = await fetch(webhook, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const body = await res.text();
+  if (!res.ok) throw new Error(`DingTalk HTTP ${res.status}: ${body}`);
+  let parsed = null;
+  try { parsed = JSON.parse(body); } catch {}
+  if (parsed && parsed.errcode !== 0) throw new Error(`DingTalk API error ${parsed.errcode}: ${parsed.errmsg || body}`);
+  console.log('DingTalk notification sent.');
+}
 async function main() {
   ensureDir(LOG_DIR); ensureDir(REPORT_DIR);
   const state = loadState();
@@ -243,6 +305,14 @@ async function main() {
   }
   const report = renderReport(newArticles, errors, allFound);
   const runInfo = { run_at: new Date().toISOString(), found: allFound.length, new: newArticles.length, errors, report };
+  try {
+    await sendDingTalk(runInfo, newArticles, report);
+  } catch (e) {
+    const msg = `钉钉推送失败：${e.message}`;
+    console.error(msg);
+    errors.push(msg);
+    runInfo.errors = errors;
+  }
   state.runs.push(runInfo);
   state.runs = state.runs.slice(-50);
   saveState(state);
@@ -250,4 +320,6 @@ async function main() {
   process.exitCode = 0; // keep Windows Scheduler green; source-level errors are written into the report.
 }
 await main();
+
+
 
