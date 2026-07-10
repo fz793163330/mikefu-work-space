@@ -1,71 +1,5 @@
 {
   "seen_urls": {
-    "https://www.searchenginejournal.com/google-algorithm-history": {
-      "first_seen": "2026-07-10T09:04:10.072Z",
-      "title": "Google Algorithm Updates & Changes: A Complete History",
-      "source": "Search Engine Journal - SEO",
-      "published": "2024-07-31T04:00:47.000Z"
-    },
-    "https://www.searchenginejournal.com/rundowns/after-the-ai-content-flood-why-personalized-experiences-need-better-content-architecture": {
-      "first_seen": "2026-07-10T09:04:13.000Z",
-      "title": "After The AI Content Flood: Why Personalized Experiences Need Better Content Architecture",
-      "source": "Search Engine Journal - SEO",
-      "published": "2026-06-08T19:08:33.000Z"
-    },
-    "https://www.searchenginejournal.com/seo": {
-      "first_seen": "2026-07-10T09:04:15.259Z",
-      "title": "What is SEO? An Introduction to SEO Basics",
-      "source": "Search Engine Journal - SEO",
-      "published": "2018-03-26T11:32:58.000Z"
-    },
-    "https://www.searchenginejournal.com/core-web-vitals": {
-      "first_seen": "2026-07-10T09:04:17.544Z",
-      "title": "Core Web Vitals: A Complete Guide",
-      "source": "Search Engine Journal - SEO",
-      "published": "2024-09-13T11:00:47.000Z"
-    },
-    "https://www.searchenginejournal.com/google-eat": {
-      "first_seen": "2026-07-10T09:04:19.827Z",
-      "title": "Your Guide to Google E-A-T & SEO",
-      "source": "Search Engine Journal - SEO",
-      "published": "2021-07-08T13:31:20.000Z"
-    },
-    "https://www.searchenginejournal.com/link-building-guide": {
-      "first_seen": "2026-07-10T09:04:22.165Z",
-      "title": "Link Building for SEO: A Complete Guide",
-      "source": "Search Engine Journal - SEO",
-      "published": "2020-03-19T13:20:57.000Z"
-    },
-    "https://www.searchenginejournal.com/local-seo": {
-      "first_seen": "2026-07-10T09:04:24.451Z",
-      "title": "Local SEO: The Definitive Guide to Improve Your Local Search Rankings",
-      "source": "Search Engine Journal - SEO",
-      "published": "2022-10-20T09:04:37.000Z"
-    },
-    "https://www.searchenginejournal.com/keyword-research": {
-      "first_seen": "2026-07-10T09:04:26.456Z",
-      "title": "Keyword Research: An In-Depth Beginner’s Guide",
-      "source": "Search Engine Journal - SEO",
-      "published": "2022-11-11T10:00:13.000Z"
-    },
-    "https://www.searchenginejournal.com/facebook-ads": {
-      "first_seen": "2026-07-10T09:04:28.708Z",
-      "title": "How to Advertise on Facebook: A Beginner's Guide",
-      "source": "Search Engine Journal - SEO",
-      "published": "2021-03-05T09:58:50.000Z"
-    },
-    "https://www.searchenginejournal.com/content-marketing": {
-      "first_seen": "2026-07-10T09:04:30.479Z",
-      "title": "Content Marketing: The Ultimate Beginner's Guide",
-      "source": "Search Engine Journal - SEO",
-      "published": "2020-04-13T15:35:04.000Z"
-    },
-    "https://www.searchenginejournal.com/dont-sell-my-information": {
-      "first_seen": "2026-07-10T09:04:32.216Z",
-      "title": "NOTICE TO CALIFORNIA CONSUMERS",
-      "source": "Search Engine Journal - SEO",
-      "published": null
-    },
     "https://www.searchenginejournal.com/the-agentic-web-is-splitting-into-two-bets-identity-and-capability/578685": {
       "first_seen": "2026-07-10T09:04:34.200Z",
       "title": "The Agentic Web Is Splitting Into Two Bets: Identity And Capability",
@@ -120,78 +54,6 @@
       "source": "Search Engine Journal - SEO",
       "published": "2026-07-07T22:14:42.000Z"
     },
-    "https://moz.com/home": {
-      "first_seen": "2026-07-10T10:25:51.169Z",
-      "title": "Welcome! Log in here.",
-      "source": "Moz Blog",
-      "published": null
-    },
-    "https://moz.com/api/dashboard/usage": {
-      "first_seen": "2026-07-10T10:25:52.016Z",
-      "title": "Moz API",
-      "source": "Moz Blog",
-      "published": null
-    },
-    "https://moz.com/products": {
-      "first_seen": "2026-07-10T10:25:52.760Z",
-      "title": "SEO Products & Solutions for Better Search Performance",
-      "source": "Moz Blog",
-      "published": "2019-03-29T16:20:00.000Z"
-    },
-    "https://moz.com/free-seo-tools": {
-      "first_seen": "2026-07-10T10:25:53.506Z",
-      "title": "Free SEO Tools by Moz | Try Premium SEO Checkers for Free",
-      "source": "Moz Blog",
-      "published": "2019-10-02T20:30:00.000Z"
-    },
-    "https://moz.com/beginners-guide-to-seo": {
-      "first_seen": "2026-07-10T10:25:54.253Z",
-      "title": "Beginner's Guide to SEO (Search Engine Optimization)",
-      "source": "Moz Blog",
-      "published": "2022-10-05T19:53:00.000Z"
-    },
-    "https://moz.com/learn/seo": {
-      "first_seen": "2026-07-10T10:25:55.000Z",
-      "title": "SEO Learning Center",
-      "source": "Moz Blog",
-      "published": "2017-08-01T20:12:00.000Z"
-    },
-    "https://moz.com/learn/seo/resources": {
-      "first_seen": "2026-07-10T10:25:55.745Z",
-      "title": "Resource Listings",
-      "source": "Moz Blog",
-      "published": "2023-04-25T17:40:00.000Z"
-    },
-    "https://moz.com/smb-solutions": {
-      "first_seen": "2026-07-10T10:25:56.488Z",
-      "title": "SEO Software for Small Business",
-      "source": "Moz Blog",
-      "published": "2019-10-15T00:39:00.000Z"
-    },
-    "https://moz.com/products/api/pricing": {
-      "first_seen": "2026-07-10T10:25:57.234Z",
-      "title": "Moz API Pricing",
-      "source": "Moz Blog",
-      "published": "2017-06-08T20:39:00.000Z"
-    },
-    "https://moz.com/login/localapp": {
-      "first_seen": "2026-07-10T10:25:58.197Z",
-      "title": "Welcome! Log in here.",
-      "source": "Moz Blog",
-      "published": null
-    },
-    "https://moz.com/subscriptions": {
-      "first_seen": "2026-07-10T10:25:59.015Z",
-      "title": "Account & Billing",
-      "source": "Moz Blog",
-      "published": null
-    },
-    "https://moz.com/whats-new": {
-      "first_seen": "2026-07-10T10:25:59.759Z",
-      "title": "Discover Moz Product Updates & New Features",
-      "source": "Moz Blog",
-      "published": "2024-06-03T17:00:00.000Z"
-    },
     "https://moz.com/blog/4-s-of-youtube-success-whiteboard-friday": {
       "first_seen": "2026-07-10T10:26:00.510Z",
       "title": "The 4 S’s of YouTube Success",
@@ -227,48 +89,6 @@
       "title": "Announcing the Final Batch of Speakers for MozCon NYC 2026",
       "source": "Moz Blog",
       "published": "2026-06-18T07:00:00.000Z"
-    },
-    "https://moz.com/keyword-research-guide": {
-      "first_seen": "2026-07-10T10:26:07.464Z",
-      "title": "The SEO Keyword Research Master Guide",
-      "source": "Moz Blog",
-      "published": "2023-03-13T07:00:00.000Z"
-    },
-    "https://moz.com/seo-competitor-analysis": {
-      "first_seen": "2026-07-10T10:26:08.208Z",
-      "title": "How to Do an SEO Competitor Analysis (Free Template)",
-      "source": "Moz Blog",
-      "published": "2024-03-04T17:20:00.000Z"
-    },
-    "https://www.seroundtable.com/archives/by-date": {
-      "first_seen": "2026-07-10T10:26:09.543Z",
-      "title": "Date Archive : Search Engine Roundtable",
-      "source": "Search Engine Roundtable",
-      "published": null
-    },
-    "https://www.seroundtable.com/authors": {
-      "first_seen": "2026-07-10T10:26:10.457Z",
-      "title": "Search Engine Roundtable Authors",
-      "source": "Search Engine Roundtable",
-      "published": null
-    },
-    "https://www.seroundtable.com/archives": {
-      "first_seen": "2026-07-10T10:26:11.377Z",
-      "title": "Archives : Search Engine Roundtable",
-      "source": "Search Engine Roundtable",
-      "published": null
-    },
-    "https://www.seroundtable.com/subscribe": {
-      "first_seen": "2026-07-10T10:26:12.539Z",
-      "title": "Subscribe To The Search Engine Roundtable",
-      "source": "Search Engine Roundtable",
-      "published": null
-    },
-    "https://www.seroundtable.com/": {
-      "first_seen": "2026-07-10T10:26:13.462Z",
-      "title": "Search Engine Roundtable ::: The Pulse Of The Search Marketing Community",
-      "source": "Search Engine Roundtable",
-      "published": null
     }
   },
   "runs": [
@@ -337,5 +157,157 @@
       ],
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_10-26-14.md"
     }
-  ]
+  ],
+  "rejected_urls": {
+    "https://www.searchenginejournal.com/google-algorithm-history": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/rundowns/after-the-ai-content-flood-why-personalized-experiences-need-better-content-architecture": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/seo": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/core-web-vitals": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/google-eat": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/link-building-guide": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/local-seo": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/keyword-research": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/facebook-ads": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/content-marketing": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.searchenginejournal.com/dont-sell-my-information": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/home": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/api/dashboard/usage": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/products": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/free-seo-tools": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/beginners-guide-to-seo": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/learn/seo": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/learn/seo/resources": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/smb-solutions": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/products/api/pricing": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/login/localapp": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/subscriptions": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/whats-new": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/keyword-research-guide": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://moz.com/seo-competitor-analysis": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Moz Blog",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.seroundtable.com/archives/by-date": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Roundtable",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.seroundtable.com/authors": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Roundtable",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.seroundtable.com/archives": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Roundtable",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.seroundtable.com/subscribe": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Roundtable",
+      "reason": "pruned_by_strict_content_page_rules"
+    },
+    "https://www.seroundtable.com/": {
+      "last_seen": "2026-07-10T10:56:27.331Z",
+      "source": "Search Engine Roundtable",
+      "reason": "pruned_by_strict_content_page_rules"
+    }
+  }
 }

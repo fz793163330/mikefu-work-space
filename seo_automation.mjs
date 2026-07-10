@@ -3,10 +3,42 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const SOURCES = [
-  { name: 'Search Engine Journal - SEO', url: 'https://www.searchenginejournal.com/category/seo/', allowedHost: 'www.searchenginejournal.com' },
-  { name: 'Search Engine Land - SEO', url: 'https://searchengineland.com/library/seo', allowedHost: 'searchengineland.com' },
-  { name: 'Moz Blog', url: 'https://moz.com/blog', allowedHost: 'moz.com' },
-  { name: 'Search Engine Roundtable', url: 'https://www.seroundtable.com/', allowedHost: 'www.seroundtable.com' },
+  {
+    name: 'Search Engine Journal - SEO',
+    url: 'https://www.searchenginejournal.com/category/seo/',
+    allowedHost: 'www.searchenginejournal.com',
+    requiredSchemaTypes: ['Article'],
+    urlPattern: /\/\d{4,}$/,
+    maxCandidates: 60,
+    maxArticles: 12,
+  },
+  {
+    name: 'Search Engine Land - SEO',
+    url: 'https://searchengineland.com/library/seo',
+    allowedHost: 'searchengineland.com',
+    requiredSchemaTypes: ['Article', 'NewsArticle', 'BlogPosting'],
+    maxCandidates: 60,
+    maxArticles: 12,
+  },
+  {
+    name: 'Moz Blog',
+    url: 'https://moz.com/blog',
+    allowedHost: 'moz.com',
+    requiredPathPrefix: '/blog/',
+    requiredSchemaTypes: ['Article', 'BlogPosting', 'NewsArticle'],
+    maxCandidates: 40,
+    maxArticles: 10,
+  },
+  {
+    name: 'Search Engine Roundtable',
+    url: 'https://www.seroundtable.com/',
+    allowedHost: 'www.seroundtable.com',
+    urlPattern: /^\/[^/]+-\d+\.html$/,
+    allowFileExtensions: ['.html'],
+    requiredSchemaTypes: ['NewsArticle'],
+    maxCandidates: 60,
+    maxArticles: 12,
+  },
 ];
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,12 +48,54 @@ const REPORT_DIR = path.join(ROOT, 'reports');
 const LOG_DIR = path.join(ROOT, 'logs');
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36 CodexSEOAutomation/1.0';
 const STOPWORDS = new Set(`a an and are as at be by for from has have how in into is it its of on or that the this to was what when where who why will with you your about after all also can more most new not over search seo google content marketing site sites page pages website websites ai aeo users user their they them there these those using use used via we our`.split(/\s+/));
+const NON_ARTICLE_PATH_PATTERNS = [
+  /^\/?$/,
+  /\/author(s)?(\/|$)/i,
+  /\/category(\/|$)/i,
+  /\/tag(\/|$)/i,
+  /\/page\/\d+/i,
+  /\/library(\/|$)/i,
+  /\/events?(\/|$)/i,
+  /\/webinars?(\/|$)/i,
+  /\/about(\/|$)/i,
+  /\/contact(\/|$)/i,
+  /\/advertise(\/|$)/i,
+  /\/newsletter(\/|$)/i,
+  /\/legal(\/|$)/i,
+  /\/privacy(\/|$)/i,
+  /\/terms(\/|$)/i,
+  /\/login(\/|$)/i,
+  /\/subscribe(\/|$)/i,
+  /\/subscriptions?(\/|$)/i,
+  /\/archives?(\/|$)/i,
+  /\/forums?(\/|$)/i,
+  /\/feed(\/|$)/i,
+  /\/api(\/|$)/i,
+  /\/products?(\/|$)/i,
+  /\/free-seo-tools(\/|$)/i,
+  /\/learn(\/|$)/i,
+  /\/resources(\/|$)/i,
+  /\/smb-solutions(\/|$)/i,
+  /\/beginners-guide/i,
+  /\/keyword-research-guide/i,
+  /\/seo-competitor-analysis/i,
+  /\/dont-sell-my-information(\/|$)/i,
+];
+const BAD_TITLE_RE = /\b(log\s*in|sign\s*in|subscribe|subscription|dashboard|pricing|products?|tools?|privacy|terms|contact|advertise|archives?|authors?)\b/i;
+
+class ValidationSkip extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationSkip';
+    this.validation = true;
+  }
+}
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 function cleanText(s = '') { return decodeEntities(String(s)).replace(/\s+/g, ' ').trim(); }
 function decodeEntities(s) {
   const map = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
-  return s.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (orig, ent) => {
+  return String(s).replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (orig, ent) => {
     if (ent[0] === '#') {
       const n = ent[1]?.toLowerCase() === 'x' ? parseInt(ent.slice(2), 16) : parseInt(ent.slice(1), 10);
       return Number.isFinite(n) ? String.fromCodePoint(n) : orig;
@@ -30,7 +104,7 @@ function decodeEntities(s) {
   });
 }
 function stripTags(html = '') {
-  return cleanText(html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<noscript[\s\S]*?<\/noscript>/gi, ' ').replace(/<[^>]+>/g, ' '));
+  return cleanText(String(html).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<noscript[\s\S]*?<\/noscript>/gi, ' ').replace(/<[^>]+>/g, ' '));
 }
 function canonicalize(u) {
   const url = new URL(u);
@@ -41,8 +115,12 @@ function canonicalize(u) {
 }
 function attr(tag, name) {
   const re = new RegExp(`\\b${name}\\s*=\\s*(['"])(.*?)\\1`, 'is');
-  const m = tag.match(re);
+  const m = String(tag).match(re);
   return m ? decodeEntities(m[2].trim()) : null;
+}
+function isBlockingPage(html) {
+  const s = String(html).slice(0, 12000);
+  return (/Just a moment/i.test(s) && /cloudflare|cf-/i.test(s)) || /cf-browser-verification/i.test(s) || /enable javascript and cookies to continue/i.test(s);
 }
 async function fetchHtml(url, timeoutMs = 25000) {
   const controller = new AbortController();
@@ -57,11 +135,50 @@ async function fetchHtml(url, timeoutMs = 25000) {
       redirect: 'follow',
       signal: controller.signal,
     });
+    const html = await res.text();
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-    return await res.text();
+    if (isBlockingPage(html)) throw new Error('Cloudflare/browser verification page');
+    return html;
   } finally {
     clearTimeout(timer);
   }
+}
+function sourceForUrl(abs) {
+  try {
+    const host = new URL(abs).hostname.toLowerCase();
+    return SOURCES.find(s => host === s.allowedHost.toLowerCase()) || null;
+  } catch {
+    return null;
+  }
+}
+function sourceUrlAllowed(source, abs) {
+  let u;
+  try { u = new URL(abs); } catch { return false; }
+  if (u.hostname.toLowerCase() !== source.allowedHost.toLowerCase()) return false;
+  const pathname = u.pathname || '/';
+  const lowerPath = pathname.toLowerCase();
+  if (source.requiredPathPrefix && !lowerPath.startsWith(source.requiredPathPrefix.toLowerCase())) return false;
+  if (source.urlPattern && !source.urlPattern.test(pathname)) return false;
+  if (NON_ARTICLE_PATH_PATTERNS.some(re => re.test(lowerPath))) return false;
+  const ext = path.extname(pathname).toLowerCase();
+  if (ext && !(source.allowFileExtensions || []).includes(ext)) return false;
+  return true;
+}
+function titleFromUrl(abs) {
+  try {
+    const slug = path.basename(new URL(abs).pathname).replace(/\.html$/i, '').replace(/-\d+$/, '').replace(/-/g, ' ');
+    return slug.replace(/\b\w/g, c => c.toUpperCase());
+  } catch {
+    return '';
+  }
+}
+function addCandidate(out, source, abs, title, origin) {
+  let normalized;
+  try { normalized = canonicalize(abs); } catch { return; }
+  if (!sourceUrlAllowed(source, normalized)) return;
+  const cleanTitle = cleanText(title || titleFromUrl(normalized)).replace(/^(read more|learn more|continue reading)\b/i, '').trim();
+  if (cleanTitle && (cleanTitle.length > 180 || BAD_TITLE_RE.test(cleanTitle))) return;
+  if (!out.has(normalized)) out.set(normalized, { source: source.name, title: cleanTitle || titleFromUrl(normalized), url: normalized, origin, order: out.size });
 }
 function extractListingArticles(source, html) {
   const out = new Map();
@@ -70,30 +187,20 @@ function extractListingArticles(source, html) {
     const href = decodeEntities(m[2].trim());
     if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:')) continue;
     let abs;
-    try { abs = canonicalize(new URL(href, source.url).toString()); } catch { continue; }
-    const u = new URL(abs);
-    if (u.hostname.toLowerCase() !== source.allowedHost.toLowerCase()) continue;
-    const lowerPath = u.pathname.toLowerCase();
-    if (['/author/', '/category/', '/library/seo', '/tag/', '/page/', '/events', '/webinars', '/about', '/contact', '/advertise', '/newsletter', '/legal'].some(x => lowerPath.includes(x))) continue;
-    if (path.basename(u.pathname).includes('.')) continue;
-    let text = stripTags(m[3]).replace(/^(read more|learn more|continue reading)\b/i, '').trim();
+    try { abs = new URL(href, source.url).toString(); } catch { continue; }
+    let text = stripTags(m[3]);
     text = text.replace(/\s*[|–-]\s*Search Engine (Journal|Land).*$/i, '').trim();
-    if (text.length < 12 || text.length > 180 || text.split(/\s+/).length < 3) continue;
-    if (!out.has(abs)) out.set(abs, { source: source.name, title: text, url: abs });
+    addCandidate(out, source, abs, text, 'anchor');
   }
   const jsonUrlRe = /"url"\s*:\s*"(https?:\\?\/\\?\/[^"\\]+(?:\\.[^"\\]+)*)"/gi;
   for (const m of html.matchAll(jsonUrlRe)) {
-    let abs = m[1].replace(/\\\//g, '/');
-    try { abs = canonicalize(abs); } catch { continue; }
-    const u = new URL(abs);
-    if (u.hostname.toLowerCase() !== source.allowedHost.toLowerCase()) continue;
-    if (['/author/', '/category/', '/tag/'].some(x => u.pathname.toLowerCase().includes(x))) continue;
-    if (!out.has(abs)) {
-      const slug = path.basename(u.pathname).replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-      if (slug) out.set(abs, { source: source.name, title: slug, url: abs });
-    }
+    addCandidate(out, source, m[1].replace(/\\\//g, '/'), '', 'json-url');
   }
-  return [...out.values()].slice(0, 20);
+  const hrefUrlRe = /https?:\\?\/\\?\/[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]+/g;
+  for (const m of html.matchAll(hrefUrlRe)) {
+    addCandidate(out, source, m[0].replace(/\\\//g, '/'), '', 'raw-url');
+  }
+  return [...out.values()].slice(0, source.maxCandidates || 50);
 }
 function meta(html, key) {
   for (const m of html.matchAll(/<meta\b[^>]*>/gi)) {
@@ -103,6 +210,13 @@ function meta(html, key) {
       const val = attr(tag, 'content');
       if (val) return cleanText(val);
     }
+  }
+  return null;
+}
+function canonicalLink(html) {
+  for (const m of html.matchAll(/<link\b[^>]*>/gi)) {
+    const tag = m[0];
+    if ((attr(tag, 'rel') || '').toLowerCase() === 'canonical') return attr(tag, 'href');
   }
   return null;
 }
@@ -117,16 +231,65 @@ function normalizeDate(s) {
   if (!s) return null;
   s = cleanText(s);
   const d = new Date(s);
-  return Number.isNaN(d.getTime()) ? s : d.toISOString();
+  return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 function dedupe(items) {
   const seen = new Set();
   const out = [];
   for (const item of items || []) {
-    const norm = item.toLowerCase().replace(/\W+/g, ' ').trim();
+    const norm = String(item).toLowerCase().replace(/\W+/g, ' ').trim();
     if (norm && !seen.has(norm)) { seen.add(norm); out.push(item); }
   }
   return out;
+}
+function asArray(v) { return Array.isArray(v) ? v : (v == null ? [] : [v]); }
+function scalar(v) {
+  if (v == null) return null;
+  if (typeof v === 'string' || typeof v === 'number') return cleanText(v);
+  if (Array.isArray(v)) return scalar(v[0]);
+  if (typeof v === 'object') return scalar(v.name || v.headline || v['@id'] || v.text);
+  return null;
+}
+function flattenJsonLd(node, out = []) {
+  if (!node) return out;
+  if (Array.isArray(node)) {
+    for (const item of node) flattenJsonLd(item, out);
+    return out;
+  }
+  if (typeof node !== 'object') return out;
+  out.push(node);
+  for (const key of ['@graph', 'itemListElement', 'mainEntity', 'about']) {
+    if (node[key]) flattenJsonLd(node[key], out);
+  }
+  if (node.item) flattenJsonLd(node.item, out);
+  return out;
+}
+function jsonLdItems(html) {
+  const items = [];
+  const scriptRe = /<script\b[^>]*type\s*=\s*(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
+  for (const m of html.matchAll(scriptRe)) {
+    const raw = decodeEntities(m[2]).trim();
+    if (!raw) continue;
+    try {
+      flattenJsonLd(JSON.parse(raw), items);
+    } catch {
+      // Some sites occasionally emit malformed JSON-LD; meta tags still provide fallback fields,
+      // but schema validation below must pass for this automation to report a page.
+    }
+  }
+  return items;
+}
+function itemTypes(item) {
+  return asArray(item?.['@type']).flatMap(t => typeof t === 'string' ? [t] : []).map(t => t.toLowerCase());
+}
+function schemaTypeMatches(item, requiredTypes) {
+  const types = itemTypes(item);
+  return requiredTypes.some(req => types.includes(req.toLowerCase()));
+}
+function findArticleSchema(html, source) {
+  const required = source.requiredSchemaTypes || [];
+  if (!required.length) return null;
+  return jsonLdItems(html).find(item => schemaTypeMatches(item, required)) || null;
 }
 function keywords(article, n = 10) {
   const text = `${article.title || ''} ${article.description || ''} ${(article.headings || []).join(' ')}`.toLowerCase();
@@ -156,25 +319,52 @@ function makeMethods(article) {
   methods.push('执行动作：把本文观点转成 1 个待办实验，记录基准指标（排名/曝光/点击/转化），2-4 周后复盘。');
   return dedupe(methods);
 }
-async function extractArticleDetail(article) {
+async function extractArticleDetail(article, source) {
+  if (!sourceUrlAllowed(source, article.url)) throw new ValidationSkip('URL 不符合该来源的内容页规则');
   const html = await fetchHtml(article.url, 20000);
-  const title = meta(html, 'og:title') || firstMatch(html, [/<h1\b[^>]*>([\s\S]*?)<\/h1>/i, /<title\b[^>]*>([\s\S]*?)<\/title>/i]) || article.title;
-  const description = meta(html, 'description') || meta(html, 'og:description');
-  let published = meta(html, 'article:published_time');
-  if (!published) published = html.match(/"datePublished"\s*:\s*"([^"]+)"/i)?.[1] || null;
-  if (!published) published = html.match(/<time\b[^>]*datetime\s*=\s*(['"])(.*?)\1[^>]*>/i)?.[2] || null;
-  const headings = dedupe([...html.matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/gi)].map(m => stripTags(m[1])).filter(h => h && h.length < 160 && !['related articles', 'recommended', 'more resources'].includes(h.toLowerCase()))).slice(0, 8);
+  const canonical = canonicalLink(html) || meta(html, 'og:url') || article.url;
+  let canonicalAbs = article.url;
+  try { canonicalAbs = canonicalize(new URL(canonical, article.url).toString()); } catch {}
+  if (!sourceUrlAllowed(source, canonicalAbs)) throw new ValidationSkip(`canonical URL 不符合内容页规则：${canonicalAbs}`);
+  const schema = findArticleSchema(html, source);
+  if ((source.requiredSchemaTypes || []).length && !schema) throw new ValidationSkip(`缺少 ${source.requiredSchemaTypes.join('/')} 结构化数据`);
+  const title = scalar(schema?.headline) || scalar(schema?.name) || meta(html, 'og:title') || firstMatch(html, [/<h1\b[^>]*>([\s\S]*?)<\/h1>/i, /<title\b[^>]*>([\s\S]*?)<\/title>/i]) || article.title;
+  if (!title || title.length < 8 || BAD_TITLE_RE.test(title)) throw new ValidationSkip(`标题不像文章：${title || '(empty)'}`);
+  const description = scalar(schema?.description) || meta(html, 'description') || meta(html, 'og:description');
+  const published = normalizeDate(scalar(schema?.datePublished) || meta(html, 'article:published_time') || html.match(/<time\b[^>]*datetime\s*=\s*(['"])(.*?)\1[^>]*>/i)?.[2]);
+  if (!published) throw new ValidationSkip('缺少可解析的发布时间');
+  const headings = dedupe([...html.matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/gi)].map(m => stripTags(m[1])).filter(h => h && h.length < 160 && !['related articles', 'recommended', 'more resources', 'latest articles'].includes(h.toLowerCase()))).slice(0, 8);
   const bullets = dedupe([...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(m => stripTags(m[1])).filter(b => b.length >= 25 && b.length <= 240 && b.split(/\s+/).length >= 5)).slice(0, 8);
-  const detailed = { ...article, title, description, published: normalizeDate(published), headings, bullets };
+  const detailed = { ...article, title, description, published, headings, bullets, schema_types: itemTypes(schema) };
   detailed.summary = makeSummary(detailed);
   detailed.methods = makeMethods(detailed);
   return detailed;
 }
 function loadState() {
   if (fs.existsSync(STATE_FILE)) return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
-  return { seen_urls: {}, runs: [] };
+  return { seen_urls: {}, rejected_urls: {}, runs: [] };
+}
+function pruneState(state) {
+  state.seen_urls ||= {};
+  state.rejected_urls ||= {};
+  state.runs ||= [];
+  for (const url of Object.keys(state.seen_urls)) {
+    const source = sourceForUrl(url);
+    if (!source || !sourceUrlAllowed(source, url)) {
+      state.rejected_urls[url] = {
+        last_seen: new Date().toISOString(),
+        source: state.seen_urls[url]?.source || source?.name || null,
+        reason: 'pruned_by_strict_content_page_rules',
+      };
+      delete state.seen_urls[url];
+    }
+  }
 }
 function saveState(state) { fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8'); }
+function articleSortKey(a) {
+  const t = a.published ? Date.parse(a.published) : NaN;
+  return Number.isFinite(t) ? t : 0;
+}
 function renderReport(newArticles, errors, allFound) {
   ensureDir(REPORT_DIR);
   const now = new Date();
@@ -184,8 +374,9 @@ function renderReport(newArticles, errors, allFound) {
   lines.push('# SEO/AEO 最新观点内容学习 & 方法论沉淀', '');
   lines.push(`- 运行时间：${now.toLocaleString('zh-CN', { hour12: false })}`);
   lines.push(`- 检查来源：${SOURCES.length} 个`);
-  lines.push(`- 发现列表文章：${allFound.length} 篇`);
+  lines.push(`- 有效最新内容页：${allFound.length} 篇`);
   lines.push(`- 新文章：${newArticles.length} 篇`, '');
+  lines.push('> 抓取规则：只分析通过来源规则和 Article/NewsArticle/BlogPosting 结构化数据校验的内容页；已记录 URL 不会重复报告。', '');
   if (errors.length) { lines.push('## 抓取异常', ...errors.map(e => `- ${e}`), ''); }
   if (!newArticles.length) {
     lines.push('## 结果', '本次未发现新文章。', '');
@@ -226,7 +417,7 @@ function dingTalkText(runInfo, newArticles, reportPath) {
   lines.push('');
   lines.push(`- 运行时间：${new Date(runInfo.run_at).toLocaleString('zh-CN', { hour12: false })}`);
   lines.push(`- 新文章：${runInfo.new} 篇`);
-  lines.push(`- 列表文章：${runInfo.found} 篇`);
+  lines.push(`- 有效最新内容页：${runInfo.found} 篇`);
   if (runInfo.errors?.length) lines.push(`- 抓取异常：${runInfo.errors.length} 个（详见报告）`);
   lines.push(`- 报告：${reportUrl || path.basename(reportPath)}`);
   lines.push('');
@@ -276,29 +467,45 @@ async function sendDingTalk(runInfo, newArticles, reportPath) {
 async function main() {
   ensureDir(LOG_DIR); ensureDir(REPORT_DIR);
   const state = loadState();
-  state.seen_urls ||= {};
-  state.runs ||= [];
+  pruneState(state);
   const errors = [];
   const allFound = [];
   const newArticles = [];
   for (const source of SOURCES) {
     try {
       const html = await fetchHtml(source.url, 25000);
-      const listing = extractListingArticles(source, html);
-      allFound.push(...listing);
-      for (const art of listing) {
-        if (state.seen_urls[art.url]) continue;
-        let detailed;
-        try { detailed = await extractArticleDetail(art); }
-        catch (e) {
-          detailed = { ...art };
-          detailed.summary = makeSummary(detailed);
-          detailed.methods = makeMethods(detailed);
-          errors.push(`详情页抓取失败：${art.url} — ${e.message}`);
+      const candidates = extractListingArticles(source, html);
+      const validLatest = [];
+      const detailErrors = [];
+      for (const candidate of candidates) {
+        const seen = state.seen_urls[candidate.url];
+        if (seen) {
+          validLatest.push({ ...candidate, title: seen.title || candidate.title, published: seen.published || null, seen: true });
+          continue;
         }
-        newArticles.push(detailed);
-        state.seen_urls[art.url] = { first_seen: new Date().toISOString(), title: detailed.title, source: detailed.source, published: detailed.published || null };
+        try {
+          const detailed = await extractArticleDetail(candidate, source);
+          validLatest.push({ ...detailed, seen: false });
+          state.rejected_urls && delete state.rejected_urls[candidate.url];
+        } catch (e) {
+          if (e.validation) {
+            state.rejected_urls[candidate.url] = { last_seen: new Date().toISOString(), source: source.name, reason: e.message };
+          } else {
+            detailErrors.push(`${candidate.url} — ${e.message}`);
+          }
+        }
         await new Promise(r => setTimeout(r, 700));
+      }
+      validLatest.sort((a, b) => articleSortKey(b) - articleSortKey(a) || a.order - b.order);
+      const latestForSource = validLatest.slice(0, source.maxArticles || 10);
+      allFound.push(...latestForSource);
+      for (const art of latestForSource) {
+        if (state.seen_urls[art.url]) continue;
+        newArticles.push(art);
+        state.seen_urls[art.url] = { first_seen: new Date().toISOString(), title: art.title, source: art.source, published: art.published || null };
+      }
+      if (detailErrors.length) {
+        errors.push(`详情页抓取失败：${source.name} ${detailErrors.length} 个候选，示例：${detailErrors.slice(0, 2).join('；')}`);
       }
     } catch (e) {
       errors.push(`列表页抓取失败：${source.name} ${source.url} — ${e.message}`);

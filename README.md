@@ -42,3 +42,14 @@ GitHub Actions 已支持把每日摘要推送到钉钉机器人。请在 GitHub 
 为了安全，不要把 webhook 明文提交到代码仓库。
 
 钉钉推送当前使用 `text` 消息类型，以兼容不支持 Markdown 消息的机器人类型。消息正文包含 `SEO/AEO` 关键词，若机器人配置了关键词安全校验，请确保关键词包含 `SEO`、`AEO` 或 `SEO/AEO`。
+
+## 内容页过滤规则
+
+为避免把首页、登录页、工具页、作者页等误当文章，脚本现在会先做来源级 URL 规则，再抓详情页校验结构化数据：
+
+- Moz Blog：只接受 `https://moz.com/blog/` 开头的内容页。
+- Search Engine Roundtable：只接受形如 `https://www.seroundtable.com/*-数字.html` 且详情页含 `NewsArticle` 结构化数据的页面。
+- Search Engine Journal：只接受文章 ID 结尾的页面，且详情页含 `Article` 结构化数据。
+- Search Engine Land：保留文章结构化数据校验；若遇到 Cloudflare/403，会记录异常并跳过。
+
+所有已报告 URL 会写入 `seo_automation_state.json`，后续不会重复报告；不符合规则的历史误抓 URL 已迁移到 `rejected_urls`。
