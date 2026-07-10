@@ -1,0 +1,39 @@
+﻿name: SEO/AEO Daily Digest
+
+on:
+  schedule:
+    # 09:00 Asia/Shanghai = 01:00 UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seo-aeo-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run SEO/AEO digest
+        run: node seo_automation.mjs
+
+      - name: Commit generated reports and state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/ seo_automation_state.json
+          if git diff --cached --quiet; then
+            echo "No report/state changes to commit."
+          else
+            git commit -m "chore: update SEO/AEO daily digest"
+            git push
+          fi
