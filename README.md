@@ -40,3 +40,5 @@ GitHub Actions 已支持把每日摘要推送到钉钉机器人。请在 GitHub 
 5. 保存后，可进入 `Actions` → `SEO/AEO Daily Digest` → `Run workflow` 手动测试
 
 为了安全，不要把 webhook 明文提交到代码仓库。
+
+钉钉推送当前使用 `text` 消息类型，以兼容不支持 Markdown 消息的机器人类型。消息正文包含 `SEO/AEO` 关键词，若机器人配置了关键词安全校验，请确保关键词包含 `SEO`、`AEO` 或 `SEO/AEO`。

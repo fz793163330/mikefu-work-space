@@ -220,22 +220,22 @@ function githubReportUrl(reportPath) {
 function dingTalkText(runInfo, newArticles, reportPath) {
   const reportUrl = githubReportUrl(reportPath);
   const lines = [];
-  lines.push('## SEO/AEO 每日学习报告');
+  lines.push('SEO/AEO 每日学习报告');
   lines.push('');
   lines.push(`- 运行时间：${new Date(runInfo.run_at).toLocaleString('zh-CN', { hour12: false })}`);
   lines.push(`- 新文章：${runInfo.new} 篇`);
   lines.push(`- 列表文章：${runInfo.found} 篇`);
   if (runInfo.errors?.length) lines.push(`- 抓取异常：${runInfo.errors.length} 个（详见报告）`);
-  lines.push(`- 报告：${reportUrl ? `[打开 GitHub 报告](${reportUrl})` : path.basename(reportPath)}`);
+  lines.push(`- 报告：${reportUrl || path.basename(reportPath)}`);
   lines.push('');
   if (newArticles.length) {
-    lines.push('### 今日重点文章');
+    lines.push('今日重点文章：');
     for (const a of newArticles.slice(0, 8)) {
-      lines.push(`- [${a.title}](${a.url})`);
+      lines.push(`- ${a.title}：${a.url}`);
     }
     if (newArticles.length > 8) lines.push(`- 其余 ${newArticles.length - 8} 篇见完整报告`);
     lines.push('');
-    lines.push('### 今日执行建议');
+    lines.push('今日执行建议：');
     lines.push('1. 选 1-2 条方法论加入内容 SOP。');
     lines.push('2. 为重点页面补齐答案前置、FAQ/结构化数据、证据来源和内链。');
     lines.push('3. 记录实验页面指标，2-4 周后复盘。');
@@ -253,10 +253,9 @@ async function sendDingTalk(runInfo, newArticles, reportPath) {
     return;
   }
   const payload = {
-    msgtype: 'markdown',
-    markdown: {
-      title: `SEO/AEO 日报：${runInfo.new} 篇新文章`,
-      text: dingTalkText(runInfo, newArticles, reportPath),
+    msgtype: 'text',
+    text: {
+      content: dingTalkText(runInfo, newArticles, reportPath),
     },
     at: { isAtAll: false },
   };
