@@ -119,6 +119,156 @@
       "title": "AI Search: Is Your Content Strategy Accidentally Recommending Your Competitors?",
       "source": "Search Engine Journal - SEO",
       "published": "2026-07-07T22:14:42.000Z"
+    },
+    "https://moz.com/home": {
+      "first_seen": "2026-07-10T10:25:51.169Z",
+      "title": "Welcome! Log in here.",
+      "source": "Moz Blog",
+      "published": null
+    },
+    "https://moz.com/api/dashboard/usage": {
+      "first_seen": "2026-07-10T10:25:52.016Z",
+      "title": "Moz API",
+      "source": "Moz Blog",
+      "published": null
+    },
+    "https://moz.com/products": {
+      "first_seen": "2026-07-10T10:25:52.760Z",
+      "title": "SEO Products & Solutions for Better Search Performance",
+      "source": "Moz Blog",
+      "published": "2019-03-29T16:20:00.000Z"
+    },
+    "https://moz.com/free-seo-tools": {
+      "first_seen": "2026-07-10T10:25:53.506Z",
+      "title": "Free SEO Tools by Moz | Try Premium SEO Checkers for Free",
+      "source": "Moz Blog",
+      "published": "2019-10-02T20:30:00.000Z"
+    },
+    "https://moz.com/beginners-guide-to-seo": {
+      "first_seen": "2026-07-10T10:25:54.253Z",
+      "title": "Beginner's Guide to SEO (Search Engine Optimization)",
+      "source": "Moz Blog",
+      "published": "2022-10-05T19:53:00.000Z"
+    },
+    "https://moz.com/learn/seo": {
+      "first_seen": "2026-07-10T10:25:55.000Z",
+      "title": "SEO Learning Center",
+      "source": "Moz Blog",
+      "published": "2017-08-01T20:12:00.000Z"
+    },
+    "https://moz.com/learn/seo/resources": {
+      "first_seen": "2026-07-10T10:25:55.745Z",
+      "title": "Resource Listings",
+      "source": "Moz Blog",
+      "published": "2023-04-25T17:40:00.000Z"
+    },
+    "https://moz.com/smb-solutions": {
+      "first_seen": "2026-07-10T10:25:56.488Z",
+      "title": "SEO Software for Small Business",
+      "source": "Moz Blog",
+      "published": "2019-10-15T00:39:00.000Z"
+    },
+    "https://moz.com/products/api/pricing": {
+      "first_seen": "2026-07-10T10:25:57.234Z",
+      "title": "Moz API Pricing",
+      "source": "Moz Blog",
+      "published": "2017-06-08T20:39:00.000Z"
+    },
+    "https://moz.com/login/localapp": {
+      "first_seen": "2026-07-10T10:25:58.197Z",
+      "title": "Welcome! Log in here.",
+      "source": "Moz Blog",
+      "published": null
+    },
+    "https://moz.com/subscriptions": {
+      "first_seen": "2026-07-10T10:25:59.015Z",
+      "title": "Account & Billing",
+      "source": "Moz Blog",
+      "published": null
+    },
+    "https://moz.com/whats-new": {
+      "first_seen": "2026-07-10T10:25:59.759Z",
+      "title": "Discover Moz Product Updates & New Features",
+      "source": "Moz Blog",
+      "published": "2024-06-03T17:00:00.000Z"
+    },
+    "https://moz.com/blog/4-s-of-youtube-success-whiteboard-friday": {
+      "first_seen": "2026-07-10T10:26:00.510Z",
+      "title": "The 4 S’s of YouTube Success",
+      "source": "Moz Blog",
+      "published": "2026-07-10T07:00:00.000Z"
+    },
+    "https://moz.com/blog/community-and-seo-benefits-whiteboard-friday": {
+      "first_seen": "2026-07-10T10:26:01.255Z",
+      "title": "Ways Community Can Help Your SEO",
+      "source": "Moz Blog",
+      "published": "2026-07-03T07:05:00.000Z"
+    },
+    "https://moz.com/blog/strategies-to-dominate-ai-search": {
+      "first_seen": "2026-07-10T10:26:02.004Z",
+      "title": "Stop Calling It SEO: 12 Strategies To Dominate AI Search in 2026",
+      "source": "Moz Blog",
+      "published": "2026-06-30T07:00:00.000Z"
+    },
+    "https://moz.com/blog/pee-framework-for-agentic-ai-whiteboard-friday": {
+      "first_seen": "2026-07-10T10:26:02.750Z",
+      "title": "The PEE Framework for Agentic AI — Whiteboard Friday",
+      "source": "Moz Blog",
+      "published": "2026-06-26T07:00:00.000Z"
+    },
+    "https://moz.com/blog/measuring-ai-search-like-seo": {
+      "first_seen": "2026-07-10T10:26:03.496Z",
+      "title": "Stop Measuring AI Search Like SEO: Here’s What To Track Instead",
+      "source": "Moz Blog",
+      "published": "2026-06-24T07:00:00.000Z"
+    },
+    "https://moz.com/blog/final-batch-speaker-announcement-mozcon-nyc-2026": {
+      "first_seen": "2026-07-10T10:26:06.718Z",
+      "title": "Announcing the Final Batch of Speakers for MozCon NYC 2026",
+      "source": "Moz Blog",
+      "published": "2026-06-18T07:00:00.000Z"
+    },
+    "https://moz.com/keyword-research-guide": {
+      "first_seen": "2026-07-10T10:26:07.464Z",
+      "title": "The SEO Keyword Research Master Guide",
+      "source": "Moz Blog",
+      "published": "2023-03-13T07:00:00.000Z"
+    },
+    "https://moz.com/seo-competitor-analysis": {
+      "first_seen": "2026-07-10T10:26:08.208Z",
+      "title": "How to Do an SEO Competitor Analysis (Free Template)",
+      "source": "Moz Blog",
+      "published": "2024-03-04T17:20:00.000Z"
+    },
+    "https://www.seroundtable.com/archives/by-date": {
+      "first_seen": "2026-07-10T10:26:09.543Z",
+      "title": "Date Archive : Search Engine Roundtable",
+      "source": "Search Engine Roundtable",
+      "published": null
+    },
+    "https://www.seroundtable.com/authors": {
+      "first_seen": "2026-07-10T10:26:10.457Z",
+      "title": "Search Engine Roundtable Authors",
+      "source": "Search Engine Roundtable",
+      "published": null
+    },
+    "https://www.seroundtable.com/archives": {
+      "first_seen": "2026-07-10T10:26:11.377Z",
+      "title": "Archives : Search Engine Roundtable",
+      "source": "Search Engine Roundtable",
+      "published": null
+    },
+    "https://www.seroundtable.com/subscribe": {
+      "first_seen": "2026-07-10T10:26:12.539Z",
+      "title": "Subscribe To The Search Engine Roundtable",
+      "source": "Search Engine Roundtable",
+      "published": null
+    },
+    "https://www.seroundtable.com/": {
+      "first_seen": "2026-07-10T10:26:13.462Z",
+      "title": "Search Engine Roundtable ::: The Pulse Of The Search Marketing Community",
+      "source": "Search Engine Roundtable",
+      "published": null
     }
   },
   "runs": [
@@ -177,6 +327,15 @@
         "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
       ],
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_10-00-53.md"
+    },
+    {
+      "run_at": "2026-07-10T10:26:14.365Z",
+      "found": 45,
+      "new": 25,
+      "errors": [
+        "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
+      ],
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_10-26-14.md"
     }
   ]
 }
