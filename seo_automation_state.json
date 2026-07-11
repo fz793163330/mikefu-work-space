@@ -191,6 +191,42 @@
       "title": "Google Business Profiles Appeals Adds Evidence Uploads In Workflow",
       "source": "Search Engine Roundtable",
       "published": "2026-07-08T11:11:00.000Z"
+    },
+    "https://www.searchenginejournal.com/seo-pulse-google-adds-social-reporting-mueller-warns-against-markdown/581946": {
+      "first_seen": "2026-07-11T07:27:13.852Z",
+      "title": "Google Adds Social Reporting; Mueller Warns Against Markdown – SEO Pulse",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-10T13:30:06.000Z"
+    },
+    "https://www.searchenginejournal.com/free-ai-citations-wont-last-ive-watched-google-fence-off-a-wide-open-field-before/581471": {
+      "first_seen": "2026-07-11T07:27:13.852Z",
+      "title": "Free AI Citations Won’t Last. I’ve Watched Google Fence Off A Wide Open Field Before",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-10T11:30:31.000Z"
+    },
+    "https://www.seroundtable.com/google-ads-ai-labels-41659.html": {
+      "first_seen": "2026-07-11T07:27:44.493Z",
+      "title": "Google Ads Now Show AI Creation/Edited Labels",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-10T11:51:00.000Z"
+    },
+    "https://www.seroundtable.com/google-ai-performance-reports-platform-properties-41663.html": {
+      "first_seen": "2026-07-11T07:27:44.493Z",
+      "title": "Hack: Google AI Performance Reports For Platform Properties",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-10T11:31:00.000Z"
+    },
+    "https://www.seroundtable.com/google-canonicalization-two-weeks-41664.html": {
+      "first_seen": "2026-07-11T07:27:44.493Z",
+      "title": "Google: Canonicalization Issues May Take Up To Two Weeks To Resolve",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-10T11:21:00.000Z"
+    },
+    "https://www.seroundtable.com/chatgpt-ads-overview-tab-41661.html": {
+      "first_seen": "2026-07-11T07:27:44.493Z",
+      "title": "ChatGPT Ads New Overview Tab, Expands To Japan & South Korea",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-10T11:11:00.000Z"
     }
   },
   "runs": [
@@ -267,6 +303,15 @@
         "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
       ],
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-10_11-02-36.md"
+    },
+    {
+      "run_at": "2026-07-11T07:27:44.945Z",
+      "found": 32,
+      "new": 6,
+      "errors": [
+        "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
+      ],
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-11_07-27-44.md"
     }
   ],
   "rejected_urls": {
@@ -421,57 +466,57 @@
       "reason": "pruned_by_strict_content_page_rules"
     },
     "https://www.searchenginejournal.com/google-on-using-markdown-for-ai-seo/581606": {
-      "last_seen": "2026-07-10T11:01:49.894Z",
+      "last_seen": "2026-07-11T07:26:55.394Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/build-an-okf-brain-like-mine/580661": {
-      "last_seen": "2026-07-10T11:01:51.471Z",
+      "last_seen": "2026-07-11T07:26:58.155Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://www.mariehaynes.com/build-an-okf-brain-like-mine"
     },
     "https://www.searchenginejournal.com/google-answers-question-about-llms-author-txt-for-seo/581547": {
-      "last_seen": "2026-07-10T11:01:52.258Z",
+      "last_seen": "2026-07-11T07:26:59.527Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/googles-open-knowledge-format-could-work-for-websites-too/579200": {
-      "last_seen": "2026-07-10T11:01:53.045Z",
+      "last_seen": "2026-07-11T07:27:00.949Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/okf-website-knowledge-graph"
     },
     "https://www.searchenginejournal.com/safaris-mcp-server/581487": {
-      "last_seen": "2026-07-10T11:01:53.832Z",
+      "last_seen": "2026-07-11T07:27:02.425Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/google-put-ai-visibility-inside-the-seo-tool-on-purpose/577889": {
-      "last_seen": "2026-07-10T11:01:54.618Z",
+      "last_seen": "2026-07-11T07:27:03.744Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/google-ai-visibility-search-console"
     },
     "https://www.searchenginejournal.com/lighthouse-fails-your-llms-txt-without-markdown-links/577590": {
-      "last_seen": "2026-07-10T11:01:55.405Z",
+      "last_seen": "2026-07-11T07:27:05.188Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/lighthouse-agentic-browsing-llms-txt-markdown"
     },
     "https://www.searchenginejournal.com/googles-mueller-flags-a-case-on-why-lcp-fixes-miss-the-target/581413": {
-      "last_seen": "2026-07-10T11:01:57.765Z",
+      "last_seen": "2026-07-11T07:27:08.926Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/google-ends-cache-served-amp-pages-in-search/581405": {
-      "last_seen": "2026-07-10T11:01:58.551Z",
+      "last_seen": "2026-07-11T07:27:10.502Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385": {
-      "last_seen": "2026-07-10T11:01:59.337Z",
+      "last_seen": "2026-07-11T07:27:11.868Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/microsoft-just-proved-a-point-about-search-today/580664": {
-      "last_seen": "2026-07-10T11:02:00.125Z",
+      "last_seen": "2026-07-11T07:27:13.153Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://duaneforresterdecodes.substack.com/p/microsoft-just-proved-a-point-about"
     },
@@ -491,32 +536,32 @@
       "reason": "缺少 Article 结构化数据"
     },
     "https://moz.com/blog/p2": {
-      "last_seen": "2026-07-10T11:02:11.881Z",
+      "last_seen": "2026-07-11T07:27:25.375Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p3": {
-      "last_seen": "2026-07-10T11:02:15.237Z",
+      "last_seen": "2026-07-11T07:27:27.965Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p4": {
-      "last_seen": "2026-07-10T11:02:15.972Z",
+      "last_seen": "2026-07-11T07:27:31.027Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p439": {
-      "last_seen": "2026-07-10T11:02:18.960Z",
+      "last_seen": "2026-07-11T07:27:34.736Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/google-search-broke-all-usage-records-41651.html": {
-      "last_seen": "2026-07-10T11:02:20.393Z",
+      "last_seen": "2026-07-11T07:27:36.251Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/recap-07-09-2026-41657.html": {
-      "last_seen": "2026-07-10T11:02:22.492Z",
+      "last_seen": "2026-07-11T07:27:43.792Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
@@ -534,6 +579,31 @@
       "last_seen": "2026-07-10T11:02:35.332Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
+    },
+    "https://www.searchenginejournal.com/google-says-canonical-re-evaluation-can-take-up-to-two-weeks/582053": {
+      "last_seen": "2026-07-11T07:26:50.221Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "缺少 Article 结构化数据"
+    },
+    "https://www.searchenginejournal.com/google-business-profiles-showing-empty-review-dashboards/582015": {
+      "last_seen": "2026-07-11T07:26:51.449Z",
+      "source": "Search Engine Journal - SEO",
+      "reason": "缺少 Article 结构化数据"
+    },
+    "https://www.seroundtable.com/recap-07-10-2026-41665.html": {
+      "last_seen": "2026-07-11T07:27:37.147Z",
+      "source": "Search Engine Roundtable",
+      "reason": "缺少 NewsArticle 结构化数据"
+    },
+    "https://www.seroundtable.com/video-07-10-2026-41660.html": {
+      "last_seen": "2026-07-11T07:27:38.048Z",
+      "source": "Search Engine Roundtable",
+      "reason": "缺少 NewsArticle 结构化数据"
+    },
+    "https://www.seroundtable.com/google-ads-product-categories-evolving-taxonomy-41654.html": {
+      "last_seen": "2026-07-11T07:27:39.885Z",
+      "source": "Search Engine Roundtable",
+      "reason": "标题不像文章：Google Automatically Assigns Product Categories With Evolving Taxonomy"
     }
   }
 }
