@@ -227,6 +227,12 @@
       "title": "ChatGPT Ads New Overview Tab, Expands To Japan & South Korea",
       "source": "Search Engine Roundtable",
       "published": "2026-07-10T11:11:00.000Z"
+    },
+    "https://www.searchenginejournal.com/ai-visibility-rankings-arent-stable-new-research-shows-its-mostly-statistical-noise/581905": {
+      "first_seen": "2026-07-12T08:56:23.576Z",
+      "title": "AI Visibility Rankings Aren’t Stable – New Research Shows It’s Mostly Statistical Noise",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-11T12:30:19.000Z"
     }
   },
   "runs": [
@@ -312,6 +318,15 @@
         "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
       ],
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-11_07-27-44.md"
+    },
+    {
+      "run_at": "2026-07-12T08:56:47.266Z",
+      "found": 32,
+      "new": 1,
+      "errors": [
+        "列表页抓取失败：Search Engine Land - SEO https://searchengineland.com/library/seo — HTTP 403 Forbidden"
+      ],
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-12_08-56-46.md"
     }
   ],
   "rejected_urls": {
@@ -466,52 +481,52 @@
       "reason": "pruned_by_strict_content_page_rules"
     },
     "https://www.searchenginejournal.com/google-on-using-markdown-for-ai-seo/581606": {
-      "last_seen": "2026-07-11T07:26:55.394Z",
+      "last_seen": "2026-07-12T08:56:07.441Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/build-an-okf-brain-like-mine/580661": {
-      "last_seen": "2026-07-11T07:26:58.155Z",
+      "last_seen": "2026-07-12T08:56:10.126Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://www.mariehaynes.com/build-an-okf-brain-like-mine"
     },
     "https://www.searchenginejournal.com/google-answers-question-about-llms-author-txt-for-seo/581547": {
-      "last_seen": "2026-07-11T07:26:59.527Z",
+      "last_seen": "2026-07-12T08:56:11.376Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/googles-open-knowledge-format-could-work-for-websites-too/579200": {
-      "last_seen": "2026-07-11T07:27:00.949Z",
+      "last_seen": "2026-07-12T08:56:12.704Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/okf-website-knowledge-graph"
     },
     "https://www.searchenginejournal.com/safaris-mcp-server/581487": {
-      "last_seen": "2026-07-11T07:27:02.425Z",
+      "last_seen": "2026-07-12T08:56:13.938Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/google-put-ai-visibility-inside-the-seo-tool-on-purpose/577889": {
-      "last_seen": "2026-07-11T07:27:03.744Z",
+      "last_seen": "2026-07-12T08:56:15.185Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/google-ai-visibility-search-console"
     },
     "https://www.searchenginejournal.com/lighthouse-fails-your-llms-txt-without-markdown-links/577590": {
-      "last_seen": "2026-07-11T07:27:05.188Z",
+      "last_seen": "2026-07-12T08:56:16.446Z",
       "source": "Search Engine Journal - SEO",
       "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/lighthouse-agentic-browsing-llms-txt-markdown"
     },
     "https://www.searchenginejournal.com/googles-mueller-flags-a-case-on-why-lcp-fixes-miss-the-target/581413": {
-      "last_seen": "2026-07-11T07:27:08.926Z",
+      "last_seen": "2026-07-12T08:56:20.322Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/google-ends-cache-served-amp-pages-in-search/581405": {
-      "last_seen": "2026-07-11T07:27:10.502Z",
+      "last_seen": "2026-07-12T08:56:21.621Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385": {
-      "last_seen": "2026-07-11T07:27:11.868Z",
+      "last_seen": "2026-07-12T08:56:22.877Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
@@ -536,32 +551,32 @@
       "reason": "缺少 Article 结构化数据"
     },
     "https://moz.com/blog/p2": {
-      "last_seen": "2026-07-11T07:27:25.375Z",
+      "last_seen": "2026-07-12T08:56:27.922Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p3": {
-      "last_seen": "2026-07-11T07:27:27.965Z",
+      "last_seen": "2026-07-12T08:56:30.526Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p4": {
-      "last_seen": "2026-07-11T07:27:31.027Z",
+      "last_seen": "2026-07-12T08:56:33.750Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://moz.com/blog/p439": {
-      "last_seen": "2026-07-11T07:27:34.736Z",
+      "last_seen": "2026-07-12T08:56:41.241Z",
       "source": "Moz Blog",
       "reason": "缺少 Article/BlogPosting/NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/google-search-broke-all-usage-records-41651.html": {
-      "last_seen": "2026-07-11T07:27:36.251Z",
+      "last_seen": "2026-07-12T08:56:42.668Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/recap-07-09-2026-41657.html": {
-      "last_seen": "2026-07-11T07:27:43.792Z",
+      "last_seen": "2026-07-12T08:56:46.200Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
@@ -581,27 +596,27 @@
       "reason": "缺少 NewsArticle 结构化数据"
     },
     "https://www.searchenginejournal.com/google-says-canonical-re-evaluation-can-take-up-to-two-weeks/582053": {
-      "last_seen": "2026-07-11T07:26:50.221Z",
+      "last_seen": "2026-07-12T08:56:05.321Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.searchenginejournal.com/google-business-profiles-showing-empty-review-dashboards/582015": {
-      "last_seen": "2026-07-11T07:26:51.449Z",
+      "last_seen": "2026-07-12T08:56:06.115Z",
       "source": "Search Engine Journal - SEO",
       "reason": "缺少 Article 结构化数据"
     },
     "https://www.seroundtable.com/recap-07-10-2026-41665.html": {
-      "last_seen": "2026-07-11T07:27:37.147Z",
+      "last_seen": "2026-07-12T08:56:43.552Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/video-07-10-2026-41660.html": {
-      "last_seen": "2026-07-11T07:27:38.048Z",
+      "last_seen": "2026-07-12T08:56:44.424Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
     },
     "https://www.seroundtable.com/google-ads-product-categories-evolving-taxonomy-41654.html": {
-      "last_seen": "2026-07-11T07:27:39.885Z",
+      "last_seen": "2026-07-12T08:56:45.290Z",
       "source": "Search Engine Roundtable",
       "reason": "标题不像文章：Google Automatically Assigns Product Categories With Evolving Taxonomy"
     }
