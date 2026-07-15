@@ -564,6 +564,14 @@
       "errors": [
         "Search Engine Land - SEO: HTTP 403 Forbidden"
       ]
+    },
+    {
+      "run_at": "2026-07-15T03:35:31.287Z",
+      "found": 0,
+      "new": 0,
+      "deep": 0,
+      "report": null,
+      "errors": []
     }
   ],
   "rejected_urls": {
