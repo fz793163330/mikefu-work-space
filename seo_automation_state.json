@@ -401,6 +401,38 @@
       "title": "Google Fixes Google-InspectionTool User Agent String In Help Doc",
       "source": "Search Engine Roundtable",
       "published": "2026-07-14T11:05:00.000Z"
+    },
+    "https://www.seroundtable.com/chatgpt-ads-attributed-sales-value-and-sales-roas-41674.html": {
+      "first_seen": "2026-07-15T03:18:24.212Z",
+      "title": "ChatGPT Ads Manager Gains Attributed Sales Value & Sales ROAS & Products",
+      "title_zh": "ChatGPT Ads Manager新增归因销售价值与销售ROAS指标",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-14T11:11:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-search-ranking-volatility-july-11th-41676.html": {
+      "first_seen": "2026-07-15T03:18:24.212Z",
+      "title": "Google Search Ranking Volatility Around 7-Eleven",
+      "title_zh": "Google搜索排名在7月11日前后出现波动",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-13T13:25:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/ai-agent-standards-what-do-we-need-to-know/581763": {
+      "first_seen": "2026-07-15T03:18:24.212Z",
+      "title": "AI Agent Standards: What Do We Need To Know?",
+      "title_zh": "AI代理标准：SEO从业者需要了解哪些新协议？",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-13T09:30:08.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/the-webmcp-tools-you-expose-to-agents-can-be-used-to-hijack-them/579204": {
+      "first_seen": "2026-07-15T03:18:24.212Z",
+      "title": "The WebMCP Tools You Expose To Agents Can Be Used To Hijack Them",
+      "title_zh": "WebMCP工具暴露可能导致AI代理被劫持",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-12T12:00:52.000Z",
+      "priority": "must_read"
     }
   },
   "runs": [
@@ -522,6 +554,16 @@
         "列表页抓取失败：Moz Blog https://moz.com/blog — HTTP 403 Forbidden"
       ],
       "report": "C:\\Users\\79316\\Documents\\SEO学习\\reports\\seo-aeo-digest-2026-07-15_01-48-47.md"
+    },
+    {
+      "run_at": "2026-07-15T03:18:24.212Z",
+      "found": 4,
+      "new": 4,
+      "deep": 2,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-15_03-18-24.md",
+      "errors": [
+        "Search Engine Land - SEO: HTTP 403 Forbidden"
+      ]
     }
   ],
   "rejected_urls": {
@@ -795,21 +837,6 @@
       "source": "Search Engine Roundtable",
       "reason": "标题不像文章：Google Automatically Assigns Product Categories With Evolving Taxonomy"
     },
-    "https://www.searchenginejournal.com/ai-agent-standards-what-do-we-need-to-know/581763": {
-      "last_seen": "2026-07-15T01:47:51.905Z",
-      "source": "Search Engine Journal - SEO",
-      "reason": "canonical URL 不符合内容页规则：https://chrisgreenseo.substack.com/p/ai-agent-standards-what-do-we-need"
-    },
-    "https://www.searchenginejournal.com/the-webmcp-tools-you-expose-to-agents-can-be-used-to-hijack-them/579204": {
-      "last_seen": "2026-07-15T01:47:54.002Z",
-      "source": "Search Engine Journal - SEO",
-      "reason": "canonical URL 不符合内容页规则：https://nohacks.co/blog/webmcp-exposed-tools-can-hijack-agents"
-    },
-    "https://www.seroundtable.com/google-search-ranking-volatility-july-11th-41676.html": {
-      "last_seen": "2026-07-15T01:48:33.284Z",
-      "source": "Search Engine Roundtable",
-      "reason": "缺少 NewsArticle 结构化数据"
-    },
     "https://www.seroundtable.com/recap-07-13-2026-41673.html": {
       "last_seen": "2026-07-15T01:48:46.841Z",
       "source": "Search Engine Roundtable",
@@ -819,11 +846,6 @@
       "last_seen": "2026-07-15T01:48:34.704Z",
       "source": "Search Engine Roundtable",
       "reason": "缺少 NewsArticle 结构化数据"
-    },
-    "https://www.seroundtable.com/chatgpt-ads-attributed-sales-value-and-sales-roas-41674.html": {
-      "last_seen": "2026-07-15T01:48:43.958Z",
-      "source": "Search Engine Roundtable",
-      "reason": "标题不像文章：ChatGPT Ads Manager Gains Attributed Sales Value & Sales ROAS & Products"
     }
   }
 }
