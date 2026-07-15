@@ -27,7 +27,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\run_seo_automation.ps1
 
 ## 注意
 
-Search Engine Land 当前可能对自动抓取返回 Cloudflare/403；脚本会把异常写入报告，不影响 Search Engine Journal 的日报生成。
+Search Engine Land 页面当前可能对详情页自动抓取返回 Cloudflare/403；脚本已改用其 RSS Feed 兜底，并筛选含 `SEO` 分类的条目生成摘要。
 
 ## 钉钉推送
 
@@ -49,7 +49,8 @@ GitHub Actions 已支持把每日摘要推送到钉钉机器人。请在 GitHub 
 
 - Moz Blog：只接受 `https://moz.com/blog/` 开头的内容页。
 - Search Engine Roundtable：只接受形如 `https://www.seroundtable.com/*-数字.html` 且详情页含 `NewsArticle` 结构化数据的页面。
-- Search Engine Journal：只接受文章 ID 结尾的页面，且详情页含 `Article` 结构化数据。
-- Search Engine Land：保留文章结构化数据校验；若遇到 Cloudflare/403，会记录异常并跳过。
+- Search Engine Journal：只接受文章 ID 结尾的页面，且详情页含 `Article`、`NewsArticle` 或 `BlogPosting` 结构化数据。
+- Search Engine Land：优先读取 `https://searchengineland.com/feed`，只保留 RSS 分类含 `SEO` 的条目；用于规避页面/详情页 403。
 
 所有已报告 URL 会写入 `seo_automation_state.json`，后续不会重复报告；不符合规则的历史误抓 URL 已迁移到 `rejected_urls`。
+

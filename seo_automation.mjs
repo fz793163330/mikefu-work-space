@@ -7,7 +7,7 @@ const SOURCES = [
     name: 'Search Engine Journal - SEO',
     url: 'https://www.searchenginejournal.com/category/seo/',
     allowedHost: 'www.searchenginejournal.com',
-    requiredSchemaTypes: ['Article'],
+    requiredSchemaTypes: ['Article', 'NewsArticle', 'BlogPosting'],
     urlPattern: /\/\d{4,}$/,
     maxCandidates: 60,
     maxArticles: 12,
@@ -17,6 +17,9 @@ const SOURCES = [
     url: 'https://searchengineland.com/library/seo',
     allowedHost: 'searchengineland.com',
     requiredSchemaTypes: ['Article', 'NewsArticle', 'BlogPosting'],
+    feedUrl: 'https://searchengineland.com/feed',
+    feedCategoryInclude: ['SEO'],
+    preferFeed: true,
     maxCandidates: 60,
     maxArticles: 12,
   },
@@ -179,6 +182,51 @@ function addCandidate(out, source, abs, title, origin) {
   const cleanTitle = cleanText(title || titleFromUrl(normalized)).replace(/^(read more|learn more|continue reading)\b/i, '').trim();
   if (cleanTitle && (cleanTitle.length > 180 || BAD_TITLE_RE.test(cleanTitle))) return;
   if (!out.has(normalized)) out.set(normalized, { source: source.name, title: cleanTitle || titleFromUrl(normalized), url: normalized, origin, order: out.size });
+}
+function stripCdata(s = '') {
+  return String(s).replace(/^\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*$/i, '$1');
+}
+function xmlTag(block, tagName) {
+  const esc = tagName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`<${esc}\\b[^>]*>([\\s\\S]*?)<\\/${esc}>`, 'i');
+  const m = String(block).match(re);
+  return m ? stripCdata(m[1]).trim() : null;
+}
+function xmlTags(block, tagName) {
+  const esc = tagName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`<${esc}\\b[^>]*>([\\s\\S]*?)<\\/${esc}>`, 'gi');
+  return [...String(block).matchAll(re)].map(m => cleanText(stripTags(stripCdata(m[1])))).filter(Boolean);
+}
+async function fetchFeedArticles(source) {
+  const xml = await fetchHtml(source.feedUrl, 25000);
+  const out = [];
+  let order = 0;
+  for (const m of xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)) {
+    const item = m[0];
+    const categories = xmlTags(item, 'category');
+    if (source.feedCategoryInclude?.length) {
+      const lower = categories.map(c => c.toLowerCase());
+      if (!source.feedCategoryInclude.some(cat => lower.includes(cat.toLowerCase()))) continue;
+    }
+    const link = cleanText(stripTags(stripCdata(xmlTag(item, 'link') || '')));
+    if (!link) continue;
+    let url;
+    try { url = canonicalize(link); } catch { continue; }
+    if (!sourceUrlAllowed(source, url)) continue;
+    const title = cleanText(stripTags(stripCdata(xmlTag(item, 'title') || titleFromUrl(url))));
+    if (!title || title.length < 8 || title.length > 180 || BAD_TITLE_RE.test(title)) continue;
+    const contentHtml = stripCdata(xmlTag(item, 'content:encoded') || xmlTag(item, 'description') || '');
+    const description = cleanText(stripTags(stripCdata(xmlTag(item, 'description') || ''))).replace(/^\s*$/, '');
+    const published = normalizeDate(xmlTag(item, 'pubDate'));
+    const headings = dedupe([...contentHtml.matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/gi)].map(h => stripTags(h[1])).filter(h => h && h.length < 160)).slice(0, 8);
+    const bullets = dedupe([...contentHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(b => stripTags(b[1])).filter(b => b.length >= 25 && b.length <= 240 && b.split(/\s+/).length >= 5)).slice(0, 8);
+    const article = { source: source.name, title, url, origin: 'rss-feed', order: order++, published, description, headings, bullets, categories, schema_types: ['RSSItem'], detailReady: true };
+    article.summary = makeSummary(article);
+    article.methods = makeMethods(article);
+    out.push(article);
+    if (out.length >= (source.maxCandidates || 50)) break;
+  }
+  return out;
 }
 function extractListingArticles(source, html) {
   const out = new Map();
@@ -376,7 +424,7 @@ function renderReport(newArticles, errors, allFound) {
   lines.push(`- 检查来源：${SOURCES.length} 个`);
   lines.push(`- 有效最新内容页：${allFound.length} 篇`);
   lines.push(`- 新文章：${newArticles.length} 篇`, '');
-  lines.push('> 抓取规则：只分析通过来源规则和 Article/NewsArticle/BlogPosting 结构化数据校验的内容页；已记录 URL 不会重复报告。', '');
+  lines.push('> 抓取规则：只分析通过来源规则和 Article/NewsArticle/BlogPosting 结构化数据校验的内容页；Search Engine Land 使用 RSS Feed 兜底；已记录 URL 不会重复报告。', '');
   if (errors.length) { lines.push('## 抓取异常', ...errors.map(e => `- ${e}`), ''); }
   if (!newArticles.length) {
     lines.push('## 结果', '本次未发现新文章。', '');
@@ -473,8 +521,13 @@ async function main() {
   const newArticles = [];
   for (const source of SOURCES) {
     try {
-      const html = await fetchHtml(source.url, 25000);
-      const candidates = extractListingArticles(source, html);
+      let candidates;
+      if (source.feedUrl && source.preferFeed) {
+        candidates = await fetchFeedArticles(source);
+      } else {
+        const html = await fetchHtml(source.url, 25000);
+        candidates = extractListingArticles(source, html);
+      }
       const validLatest = [];
       const detailErrors = [];
       for (const candidate of candidates) {
@@ -484,7 +537,7 @@ async function main() {
           continue;
         }
         try {
-          const detailed = await extractArticleDetail(candidate, source);
+          const detailed = candidate.detailReady ? candidate : await extractArticleDetail(candidate, source);
           validLatest.push({ ...detailed, seen: false });
           state.rejected_urls && delete state.rejected_urls[candidate.url];
         } catch (e) {
@@ -528,6 +581,10 @@ async function main() {
   process.exitCode = 0; // keep Windows Scheduler green; source-level errors are written into the report.
 }
 await main();
+
+
+
+
 
 
 
