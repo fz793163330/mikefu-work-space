@@ -20,8 +20,8 @@
 ## 数据源与抓取策略
 
 - Search Engine Journal：SEO 分类 RSS 发现文章，详情页正文分析。
-- Search Engine Land：官方 RSS 的 SEO 分类，直接使用 Feed 完整正文，规避详情页 403。
-- Moz Blog：官方 RSS 发现文章；详情页被 403 阻断时使用摘要并降低内容质量等级。
+- Search Engine Land：官方 RSS 的 SEO 分类，直接使用 Feed 完整正文；源站 403 时自动通过 RSS2JSON 只读代理获取同一公开 Feed。
+- Moz Blog：官方 RSS 发现文章；Feed 403 时使用 RSS2JSON 兜底，详情页被阻断时使用摘要并降低内容质量等级。
 - Search Engine Roundtable：官方 RSS 发现文章，排除 Daily Recap；低相关搜索新闻由 AI 降级或过滤。
 
 正文优先读取 Article/NewsArticle/BlogPosting 的 `articleBody`，其次读取语义化 `<article>`，不再抓取整页 H2/H3，因此不会把导航、广告和推荐内容输出为“文章结构重点”。
@@ -53,4 +53,3 @@ node .\seo_automation.mjs
 ## 安全
 
 不要把 GitHub Token 或钉钉 Webhook 写入代码、报告或提交记录。
-

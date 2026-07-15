@@ -7,7 +7,7 @@
 ## 内容采集要求
 
 1. 优先使用各来源 RSS Feed 发现文章，避免栏目页的导航、广告和推荐模块污染。
-2. Search Engine Land 使用 Feed 内完整正文；其他来源优先抓详情页正文。
+2. Search Engine Land 使用 Feed 内完整正文；其他来源优先抓详情页正文。源站 Feed 403 时允许使用 RSS2JSON 只读代理获取同一公开 Feed。
 3. 详情页正文优先取 Article/NewsArticle/BlogPosting 的 `articleBody`，其次取语义化 `<article>` 内容。
 4. Moz 等详情页被 403 阻断时只保留 Feed 摘要，并标记为 `summary_only`，不得假装已经阅读全文。
 5. Search Engine Roundtable 的 Daily Recap、活动推广、广告政策和低相关产品小改动不得自动升级为深度文章。

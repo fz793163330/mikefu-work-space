@@ -11,6 +11,7 @@ import {
   enrichArticle,
   fetchText,
   parseFeed,
+  parseRss2Json,
   sleep,
 } from './lib/digest-core.mjs';
 import { dingTalkText, renderReport } from './lib/digest-report.mjs';
@@ -39,9 +40,18 @@ async function collectNewArticles(state) {
   for (const source of SOURCES) {
     const status = { source: source.name, feedOk: false, total: 0, fullText: 0, note: '' };
     try {
-      const xml = await fetchText(source.feedUrl, 30000);
+      let feedArticles;
+      try {
+        const xml = await fetchText(source.feedUrl, 30000);
+        feedArticles = parseFeed(source, xml);
+      } catch (primaryError) {
+        const fallbackUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.feedUrl)}`;
+        const fallbackJson = await fetchText(fallbackUrl, 30000);
+        feedArticles = parseRss2Json(source, fallbackJson);
+        status.note = `源站 Feed 失败，已使用 RSS2JSON 只读代理兜底：${primaryError.message}`;
+      }
       status.feedOk = true;
-      const feedArticles = parseFeed(source, xml)
+      feedArticles = feedArticles
         .filter(article => !state.seen_urls[article.url])
         .slice(0, source.maxItems);
       for (const article of feedArticles) {
@@ -162,4 +172,3 @@ if (isDirectRun) {
     process.exitCode = 1;
   });
 }
-

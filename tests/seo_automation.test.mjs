@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { extractArticleText, parseFeed } from '../lib/digest-core.mjs';
+import { extractArticleText, parseFeed, parseRss2Json } from '../lib/digest-core.mjs';
 import { runAutomation } from '../seo_automation.mjs';
 
 const source = {
@@ -25,6 +25,33 @@ test('parseFeed keeps SEO items and full feed content', () => {
   assert.match(articles[0].feedContentHtml, /Full body/);
 });
 
+test('parseRss2Json preserves categories and full content', () => {
+  const payload = JSON.stringify({
+    status: 'ok',
+    items: [
+      {
+        title: 'Visual semantics',
+        link: 'https://searchengineland.com/visual-semantics-123',
+        pubDate: '2026-07-14 15:00:00',
+        categories: ['AI SEO', 'SEO'],
+        description: '<p>Chinese-ready summary source</p>',
+        content: '<p>Full article content</p>',
+      },
+      {
+        title: 'PPC only',
+        link: 'https://searchengineland.com/ppc-only-456',
+        pubDate: '2026-07-14 15:00:00',
+        categories: ['PPC'],
+        description: 'Ads',
+        content: 'Ads',
+      },
+    ],
+  });
+  const articles = parseRss2Json(source, payload);
+  assert.equal(articles.length, 1);
+  assert.equal(articles[0].published, '2026-07-14T15:00:00.000Z');
+  assert.match(articles[0].feedContentHtml, /Full article content/);
+});
 test('extractArticleText prioritizes structured articleBody', () => {
   const html = `<html><head><script type="application/ld+json">{"@type":"NewsArticle","articleBody":"这是正文内容。${'有效信息'.repeat(200)}"}</script></head><body><nav>噪声导航</nav></body></html>`;
   const text = extractArticleText(html);
