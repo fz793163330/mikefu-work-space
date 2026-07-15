@@ -1,0 +1,11 @@
+﻿{
+  "name": "seo-aeo-daily-digest",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node seo_automation.mjs",
+    "check": "node --check seo_automation.mjs && node --check lib/digest-core.mjs && node --check lib/digest-report.mjs",
+    "test": "node --test"
+  }
+}

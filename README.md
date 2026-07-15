@@ -1,56 +1,56 @@
 ﻿# SEO/AEO 自动学习工作区
 
-这个仓库配置了 GitHub Actions 云端定时任务，用于每天检查 SEO 资讯源是否有新文章，并生成 SEO/AEO 方法论沉淀报告。
+该仓库每天检查 SEO 行业资讯，通过 GitHub Models 进行中文筛选与深度解读，并生成可沉淀为 SEO/AEO SOP 的 Markdown 日报。
 
 ## 定时任务
 
-- Workflow: `.github/workflows/seo-aeo-digest.yml`
-- 运行时间：每天北京时间 09:00（UTC 01:00）
-- 也可在 GitHub Actions 页面手动点击 `Run workflow` 触发
+- GitHub Actions：每天北京时间 09:00（UTC 01:00）
+- 工作流：`.github/workflows/seo-aeo-digest.yml`
+- 支持在 Actions 页面手动运行
+- 本地 Windows 任务仍可作为备用，但需要设置 `GITHUB_MODELS_TOKEN` 或 `GITHUB_TOKEN`
 
 ## 输出
 
-- 报告目录：`reports/`
+- 日报：`reports/`
 - 去重状态：`seo_automation_state.json`
+- 生成规范：`SEO_REPORT_SPEC.md`
 
-## 本地运行
+新版报告结构为：今日概览、今日必读、中文深度解读、文章独有方法论、低价值快讯、抓取状态。
+
+## 数据源与抓取策略
+
+- Search Engine Journal：SEO 分类 RSS 发现文章，详情页正文分析。
+- Search Engine Land：官方 RSS 的 SEO 分类，直接使用 Feed 完整正文，规避详情页 403。
+- Moz Blog：官方 RSS 发现文章；详情页被 403 阻断时使用摘要并降低内容质量等级。
+- Search Engine Roundtable：官方 RSS 发现文章，排除 Daily Recap；低相关搜索新闻由 AI 降级或过滤。
+
+正文优先读取 Article/NewsArticle/BlogPosting 的 `articleBody`，其次读取语义化 `<article>`，不再抓取整页 H2/H3，因此不会把导航、广告和推荐内容输出为“文章结构重点”。
+
+## AI 生成
+
+GitHub Actions 使用仓库自带的 `GITHUB_TOKEN` 调用 GitHub Models，无需额外创建 OpenAI API Key：
+
+- 默认模型：`openai/gpt-4.1`
+- 工作流权限：`models: read`
+- 可通过环境变量 `SEO_AI_MODEL` 更换模型
+- 本地运行时需要提供 `GITHUB_MODELS_TOKEN` 或 `GITHUB_TOKEN`
+
+模型先对所有新增文章进行价值分类，最多选择 3 篇深度解读；低价值新闻进入快讯，无关或重复内容直接过滤。模型失败时不会退回旧版关键词模板，也不会把文章写入已处理状态。
+
+## 本地验证
 
 ```powershell
+npm test
+npm run check
+$env:GITHUB_MODELS_TOKEN = '<GitHub token>'
 node .\seo_automation.mjs
 ```
 
-或使用 Windows 包装脚本：
-
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\run_seo_automation.ps1
-```
-
-## 注意
-
-Search Engine Land 页面当前可能对详情页自动抓取返回 Cloudflare/403；脚本已改用其 RSS Feed 兜底，并筛选含 `SEO` 分类的条目生成摘要。
-
 ## 钉钉推送
 
-GitHub Actions 已支持把每日摘要推送到钉钉机器人。请在 GitHub 仓库中配置 Secret：
+仓库 Secret `DINGTALK_WEBHOOK` 用于发送纯文本摘要。推送内容只包含中文“今日必读”标题与完整 GitHub 报告地址。
 
-1. 打开仓库 `Settings` → `Secrets and variables` → `Actions`
-2. 点击 `New repository secret`
-3. Name 填：`DINGTALK_WEBHOOK`
-4. Secret 填：你的钉钉机器人 webhook URL
-5. 保存后，可进入 `Actions` → `SEO/AEO Daily Digest` → `Run workflow` 手动测试
+## 安全
 
-为了安全，不要把 webhook 明文提交到代码仓库。
-
-钉钉推送当前使用 `text` 消息类型，以兼容不支持 Markdown 消息的机器人类型。消息正文包含 `SEO/AEO` 关键词，若机器人配置了关键词安全校验，请确保关键词包含 `SEO`、`AEO` 或 `SEO/AEO`。
-
-## 内容页过滤规则
-
-为避免把首页、登录页、工具页、作者页等误当文章，脚本现在会先做来源级 URL 规则，再抓详情页校验结构化数据：
-
-- Moz Blog：只接受 `https://moz.com/blog/` 开头的内容页。
-- Search Engine Roundtable：只接受形如 `https://www.seroundtable.com/*-数字.html` 且详情页含 `NewsArticle` 结构化数据的页面。
-- Search Engine Journal：只接受文章 ID 结尾的页面，且详情页含 `Article`、`NewsArticle` 或 `BlogPosting` 结构化数据。
-- Search Engine Land：优先读取 `https://searchengineland.com/feed`，只保留 RSS 分类含 `SEO` 的条目；用于规避页面/详情页 403。
-
-所有已报告 URL 会写入 `seo_automation_state.json`，后续不会重复报告；不符合规则的历史误抓 URL 已迁移到 `rejected_urls`。
+不要把 GitHub Token 或钉钉 Webhook 写入代码、报告或提交记录。
 

@@ -8,11 +8,16 @@ on:
 
 permissions:
   contents: write
+  models: read
+
+concurrency:
+  group: seo-aeo-daily-digest
+  cancel-in-progress: false
 
 jobs:
   seo-aeo-digest:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -23,8 +28,15 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Validate digest generator
+        run: |
+          npm run check
+          npm test
+
       - name: Run SEO/AEO digest
         env:
+          GITHUB_MODELS_TOKEN: ${{ github.token }}
+          SEO_AI_MODEL: openai/gpt-4.1
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
         run: node seo_automation.mjs
 
@@ -39,5 +51,3 @@ jobs:
             git commit -m "chore: update SEO/AEO daily digest"
             git push
           fi
-
-
