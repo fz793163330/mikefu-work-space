@@ -433,6 +433,126 @@
       "source": "Search Engine Journal - SEO",
       "published": "2026-07-12T12:00:52.000Z",
       "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/ask-an-seo-how-do-i-balance-content-that-converts-with-content-that-builds-brand-authority/566261": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "How Do I Split Pages Between Brand Building & Converting? – Ask An SEO",
+      "title_zh": "如何平衡品牌建设内容与转化内容？SEO与CRO团队协作建议",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-16T09:30:23.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/eu-rule-google-favored-own-services-search-482495": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "EU expected to rule Google favored its own services in search",
+      "title_zh": "欧盟预计裁定谷歌在搜索中偏袒自家服务，或将影响搜索结果展示与数据开放",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T19:00:12.000Z",
+      "priority": "must_read"
+    },
+    "https://searchengineland.com/google-tests-performance-max-network-controls-with-new-partners-alpha-setting-482469": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google tests Performance Max network controls with new Partners (Alpha) setting",
+      "title_zh": "Google测试Performance Max广告网络控制新功能，允许排除搜索伙伴和展示网络",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T15:58:27.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/ai-mode-cites-google-report-482463": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google is AI Mode’s No. 2 most-cited domain: Report",
+      "title_zh": "Google AI Mode引用自家内容大幅增加，影响本地和产品类搜索首屏体验",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T15:30:14.000Z",
+      "priority": "must_read"
+    },
+    "https://searchengineland.com/stuck-ai-agents-482344": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Where AI agents get stuck on your site",
+      "title_zh": "B2B网站AI代理访问行为分析：定价页最易卡顿，机器可读性成关键",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T15:00:00.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/how-google-may-understand-unique-content/581959": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "How Google May ‘Understand’ Unique Content",
+      "title_zh": "Google如何理解“独特内容”？专利分析与内容唯一性评价机制",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-15T13:30:00.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/seo-vs-ppc-debate-finally-over-482366": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Why the SEO vs. PPC debate is finally over",
+      "title_zh": "SEO与PPC之争已结束，需根据业务场景灵活调整策略",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T13:00:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/google-says-no-seo-penalty-for-year-long-a-b-tests/582349": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google Says No SEO Penalty For Year-Long A/B Tests?",
+      "title_zh": "Google官方：长时间A/B测试不会导致SEO惩罚，但需注意索引版本与内容变化",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-15T12:33:03.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/customer-discover-brand-tiktok-before-google-482388": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Your next customer may discover your brand on TikTok before Google",
+      "title_zh": "TikTok成为品牌发现新入口，影响Google搜索前置流量",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-15T12:00:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-image-search-home-page-gallery-41679.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google Image Search Home Page Goes From Simple Search Box To Gallery",
+      "title_zh": "Google图片搜索首页改版为动态图片画廊，增强浏览体验",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:51:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-ai-overviews-ai-images-41680.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "AI Image Generation Now Within Google AI Overviews",
+      "title_zh": "Google AI Overviews支持AI图片生成，直接在搜索结果中展示",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:41:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/chatgpt-ads-location-audience-exclusion-41693.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "ChatGPT Ads Get Location & Audience Exclusion Controls",
+      "title_zh": "ChatGPT广告管理新增地理和受众排除功能",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:31:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-tests-hide-sponsored-products-41689.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google Confirms Testing Hide Sponsored Products In Shopping Results",
+      "title_zh": "Google测试购物结果中隐藏/显示赞助产品功能",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:21:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-a-b-testing-seo-41690.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google: Significant Differences With A/B Tests Can Show In Search Results",
+      "title_zh": "Google：A/B测试差异大时可能影响搜索结果索引与展示",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:11:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-bans-prediction-markets-product-ads-expands-shopping-ads-free-listings-41692.html": {
+      "first_seen": "2026-07-16T09:31:39.177Z",
+      "title": "Google Bans Prediction Markets Product Ads Michigan & New York; Expands Shopping Ads & Free Listings",
+      "title_zh": "Google禁止密歇根和纽约州预测市场产品广告，扩展购物广告和免费列表至更多国家",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-15T11:05:00.000Z",
+      "priority": "ignore"
     }
   },
   "runs": [
@@ -579,6 +699,14 @@
       "new": 0,
       "deep": 0,
       "report": null,
+      "errors": []
+    },
+    {
+      "run_at": "2026-07-16T09:31:39.177Z",
+      "found": 15,
+      "new": 15,
+      "deep": 3,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-16_09-31-39.md",
       "errors": []
     }
   ],
