@@ -643,6 +643,62 @@
       "published": "2026-07-16T12:00:00.000Z",
       "priority": "brief",
       "manual_review": true
+    },
+    "https://www.seroundtable.com/google-crawled-not-indexed-quality-ai-content-41701.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google: Discovered vs Crawled Not Indexed Quality Issues & AI-Generated Content",
+      "title_zh": "Google：低质量及AI生成内容导致“已抓取未收录”问题",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:55:00.000Z",
+      "priority": "must_read"
+    },
+    "https://www.seroundtable.com/apple-maps-ads-bans-home-services-41696.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Apple Maps Ads Bans Home Service Businesses With Updated Terms",
+      "title_zh": "Apple Maps广告禁止家庭服务类企业投放",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:51:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-ads-pmax-product-reporting-all-networks-41694.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google Ads Performance Max Product Reporting Now Uses All Networks",
+      "title_zh": "Google Ads Performance Max产品报告扩展至所有网络",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:41:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-manufacturer-center-manual-updates-41683.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google Manufacturer Center Removed Manual Update Or Add Products",
+      "title_zh": "Google Manufacturer Center取消手动添加或更新产品功能",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:31:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-lastmod-dates-incorrect-41697.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google: You're Better Off Without Lastmod Dates When They Are Incorrect",
+      "title_zh": "Google建议XML Sitemap中lastmod日期不准确时不使用",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:21:00.000Z",
+      "priority": "must_read"
+    },
+    "https://www.seroundtable.com/google-shopping-ads-free-listing-policies-merge-41695.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google To Merge Google Shopping Ads & Free Listing Policies To One Policy",
+      "title_zh": "Google将合并Shopping广告与免费商品展示政策",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:11:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-local-inventory-ads-setting-shopping-campaigns-41699.html": {
+      "first_seen": "2026-07-17T09:19:03.539Z",
+      "title": "Google Ads To Turn On Local Inventory Ads By Default For Shopping Campaigns",
+      "title_zh": "Google Ads购物广告默认开启本地库存广告",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-16T11:05:00.000Z",
+      "priority": "brief"
     }
   },
   "runs": [
@@ -811,6 +867,14 @@
         "https://www.searchenginejournal.com/category/seo/",
         "https://searchengineland.com/library/seo"
       ]
+    },
+    {
+      "run_at": "2026-07-17T09:19:03.539Z",
+      "found": 7,
+      "new": 7,
+      "deep": 2,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-17_09-19-03.md",
+      "errors": []
     }
   ],
   "rejected_urls": {
