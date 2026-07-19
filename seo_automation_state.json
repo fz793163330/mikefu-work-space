@@ -699,6 +699,102 @@
       "source": "Search Engine Roundtable",
       "published": "2026-07-16T11:05:00.000Z",
       "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/are-you-a-bot-screens-can-get-your-pages-dropped-by-google/582801": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "“Are You A Bot” Screens Can Get Your Pages Dropped By Google",
+      "title_zh": "“你是机器人吗”屏幕可能导致Google移除你的页面",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-19T05:00:38.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/google-notebooklm-rebrand-may-expose-your-site-to-more-ai-scraping/582775": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google NotebookLM Rebrand May Expose Your Site To More AI Scraping",
+      "title_zh": "Google NotebookLM更名为Gemini Notebook，或导致更多AI抓取",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-18T10:09:29.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/apple-maps-ads-ban-home-services/582542": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Apple Maps Ads Ban Home Services, Crypto ATMs, Bail Bonds",
+      "title_zh": "Apple Maps广告政策禁止家庭服务、加密ATM、保释金业务",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-17T19:38:09.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/seo-pulse-google-on-canonical-fixes-mueller-on-hidden-links/582671": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google On Canonical Fixes, Mueller On Hidden Link Pitfalls – SEO Pulse",
+      "title_zh": "Google关于规范canonical修复及隐藏链接的建议",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-17T12:30:33.000Z",
+      "priority": "must_read"
+    },
+    "https://www.seroundtable.com/video-07-17-2026-41703.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Search News Buzz Video Recap: Google 7/11 Update, Bing Penalties, Google Images, AI Overviews AI Images, Google Ads Updates, ChatGPT Ads Features & Apple Maps",
+      "title_zh": "搜索新闻视频简报：Google 7/11更新、Bing处罚、Google图片、AI Overviews、Google Ads、ChatGPT广告、Apple Maps",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T12:01:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-ads-broader-smart-bidding-updates-41702.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google Ads Making Broader Smart Bidding Updates? Google Says No.",
+      "title_zh": "Google Ads智能竞价更新范围澄清",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T11:51:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-maps-opentable-reservations-gone-41700.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Did Google Maps Turn Off OpenTable Reservations?",
+      "title_zh": "Google Maps移除OpenTable餐厅预订集成",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T11:41:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-renames-notebooklm-gemininotebook-41704.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google Renamed NotebookLM Useragent To Google-GeminiNotebook",
+      "title_zh": "Google将NotebookLM用户代理更名为Google-GeminiNotebook",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T11:31:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-storebot-accessibility-41650.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google StoreBot Accessibility Issues Help Document Updated",
+      "title_zh": "Google StoreBot抓取本地商品页面的可访问性帮助文档更新",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T11:21:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/google-explains-seo-connection-of-site-quality-to-non-indexed-pages/582683": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Google Explains SEO Connection Of Site Quality To Non-Indexed Pages",
+      "title_zh": "Google解释网站质量与未收录页面的SEO关系",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-17T11:16:20.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/bing-black-magnifying-glass-41552.html": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Bing Tests Black Magnifying Glass Icon In Search Bar",
+      "title_zh": "Bing测试黑色放大镜搜索图标",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-17T11:11:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.searchenginejournal.com/avinash-kaushik-says-renegotiate-now-seo-fees-25-to-75-lower/581891": {
+      "first_seen": "2026-07-19T09:00:09.715Z",
+      "title": "Avinash Kaushik Says Renegotiate Now – SEO Fees 25% To 75% Lower",
+      "title_zh": "Avinash Kaushik建议重新谈判SEO服务费用，降幅达25%-75%",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-17T10:30:56.000Z",
+      "priority": "brief"
     }
   },
   "runs": [
@@ -875,6 +971,16 @@
       "deep": 2,
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-17_09-19-03.md",
       "errors": []
+    },
+    {
+      "run_at": "2026-07-19T09:00:09.715Z",
+      "found": 12,
+      "new": 12,
+      "deep": 3,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-19_09-00-09.md",
+      "errors": [
+        "Search Engine Land - SEO: HTTP 422 Unprocessable Entity"
+      ]
     }
   ],
   "rejected_urls": {
