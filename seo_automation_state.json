@@ -795,6 +795,62 @@
       "source": "Search Engine Journal - SEO",
       "published": "2026-07-17T10:30:56.000Z",
       "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/google-downplays-search-console-error-reports-says-many-arent-real-problems/582890": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "Google Downplays Search Console “Error” Reports. Says Many Aren’t Real Problems",
+      "title_zh": "Google淡化Search Console错误报告，称多数并非真正问题",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-20T10:42:07.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/why-your-pages-are-stuck-in-crawled-currently-not-indexed-what-to-do-about-it/582585": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "Why Your Pages Are Stuck In Crawled-Currently Not Indexed & What To Do About It",
+      "title_zh": "为什么你的页面停留在已抓取但未收录状态，以及解决方法",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-20T09:30:32.000Z",
+      "priority": "must_read"
+    },
+    "https://www.seroundtable.com/google-search-ranking-volatility-41712.html": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "Google Search Ranking Volatility This Weekend - Around July 18th",
+      "title_zh": "Google搜索排名波动：7月18日周末观察",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-19T12:04:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/how-to-measure-ai-search-visibility/579893": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "How To Measure AI Search Visibility",
+      "title_zh": "如何衡量AI搜索可见性",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-19T12:00:44.000Z",
+      "priority": "must_read"
+    },
+    "https://searchengineland.com/top-stories-roll-out-in-google-ai-overviews-482615": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "Top Stories roll out in Google AI Overviews",
+      "title_zh": "Google AI Overviews上线Top Stories新闻模块",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-17T17:16:36.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/google-says-ai-search-features-sending-billions-of-clicks-to-websites-each-week-482599": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "Google says AI Search features send billions of clicks to websites each week",
+      "title_zh": "Google称AI搜索每周为网站带来数十亿点击",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-17T16:31:56.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/report-seo-results-executives-482497": {
+      "first_seen": "2026-07-20T11:28:55.422Z",
+      "title": "How to report SEO results executives actually care about",
+      "title_zh": "如何向高管汇报SEO成果",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-17T14:00:00.000Z",
+      "priority": "brief"
     }
   },
   "runs": [
@@ -981,6 +1037,14 @@
       "errors": [
         "Search Engine Land - SEO: HTTP 422 Unprocessable Entity"
       ]
+    },
+    {
+      "run_at": "2026-07-20T11:28:55.422Z",
+      "found": 7,
+      "new": 7,
+      "deep": 3,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-20_11-28-55.md",
+      "errors": []
     }
   ],
   "rejected_urls": {
