@@ -851,6 +851,102 @@
       "source": "Search Engine Land - SEO",
       "published": "2026-07-17T14:00:00.000Z",
       "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/70-of-top-retailers-are-invisible-to-agentic-commerce-heres-why/581198": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "70% Of Top Retailers Are Invisible To Agentic Commerce – Here’s Why",
+      "title_zh": "70%顶级零售商在Agentic Commerce中“隐形”——原因解析",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-21T09:30:31.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/content-marketing-agencies-ai-contentworkshop-spcs/581935": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "AI Content Marketing For Agencies: 6 Ways To Stay Competitive Right Now",
+      "title_zh": "AI内容营销：代理机构如何保持竞争力",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-21T05:00:53.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/google-confirms-local-inventory-ads-will-be-enabled-by-default-482779": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google confirms Local Inventory Ads will be enabled by default",
+      "title_zh": "Google确认本地库存广告将默认开启",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-20T21:33:43.000Z",
+      "priority": "must_read"
+    },
+    "https://www.searchenginejournal.com/google-must-share-anonymized-search-data-with-rivals/582922": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google Must Share Anonymized Search Data With Rivals",
+      "title_zh": "Google被要求向竞争对手开放匿名搜索数据",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-20T18:12:10.000Z",
+      "priority": "must_read"
+    },
+    "https://searchengineland.com/ai-driven-personalized-search-guide-482658": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "AI-driven personalized search: A practical guide",
+      "title_zh": "AI驱动的个性化搜索：实用指南",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-20T14:00:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.searchenginejournal.com/ai-answers-about-your-locations-are-often-wrong-check-before-customers-do/582205": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "AI Answers About Your Locations Are Often Wrong – Check Before Customers Do",
+      "title_zh": "AI对门店信息回答频繁出错，需主动核查",
+      "source": "Search Engine Journal - SEO",
+      "published": "2026-07-20T13:30:47.000Z",
+      "priority": "brief"
+    },
+    "https://searchengineland.com/technical-seo-waste-time-482608": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "The biggest technical SEO time-wasters to avoid",
+      "title_zh": "技术SEO时间浪费事项盘点",
+      "source": "Search Engine Land - SEO",
+      "published": "2026-07-20T12:00:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-ai-search-billions-clicks-41709.html": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google: We Send Billions Of Clicks To Websites Weekly Through AI Search",
+      "title_zh": "Google：AI搜索每周为网站带来数十亿点击",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-20T11:51:00.000Z",
+      "priority": "brief"
+    },
+    "https://www.seroundtable.com/google-google-youtube-shopify-app-update-41713.html": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google Warns Not To Uninstall/Reinstall Google & YouTube Shopify App",
+      "title_zh": "Google警告勿卸载/重装Shopify应用",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-20T11:41:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/chatgpt-showing-two-ads-41706.html": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "ChatGPT Showing Two Ads In Footer Of Results",
+      "title_zh": "ChatGPT结果页底部出现两条广告",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-20T11:31:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-content-api-extension-41710.html": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google Content API Extended Access Form Now Available",
+      "title_zh": "Google Content API延长申请表开放",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-20T11:21:00.000Z",
+      "priority": "ignore"
+    },
+    "https://www.seroundtable.com/google-ai-labels-corners-41711.html": {
+      "first_seen": "2026-07-21T10:08:11.552Z",
+      "title": "Google Warns Not To Place AI Labels On Corners Of Images",
+      "title_zh": "Google建议AI标签勿放在图片角落",
+      "source": "Search Engine Roundtable",
+      "published": "2026-07-20T11:11:00.000Z",
+      "priority": "ignore"
     }
   },
   "runs": [
@@ -1044,6 +1140,14 @@
       "new": 7,
       "deep": 3,
       "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-20_11-28-55.md",
+      "errors": []
+    },
+    {
+      "run_at": "2026-07-21T10:08:11.552Z",
+      "found": 12,
+      "new": 12,
+      "deep": 3,
+      "report": "/home/runner/work/mikefu-work-space/mikefu-work-space/reports/seo-aeo-digest-2026-07-21_10-08-11.md",
       "errors": []
     }
   ],
